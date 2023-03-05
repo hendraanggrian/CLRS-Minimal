@@ -5,19 +5,15 @@ readonly RED=[91m
 readonly GREEN=[92m
 readonly YELLOW=[93m
 
-warn() { echo "$YELLOW$*$END"; } >&2
-die() { echo; echo "$RED$*$END"; echo; exit 1; } >&2
-
 readonly SOURCE_ROOT="$(cd "$(dirname "$0")" && pwd)"
 
 echo
 echo "Starting..."
 echo
-
 for chapter in "docs/"*; do
   chapter_name="$(basename "$chapter")"
-  chapter_version="${chapter_name#*Chap}" # remove prefix
-  chapter_version="${chapter_version#*0}" # remove prefix
+  chapter_version="${chapter_name#*Chap0}" # remove prefix
+  chapter_version="${chapter_version#*Chap}" # remove prefix
   case "$chapter_version" in
     1) chapter_title="1 The Role of Algorithms in Computing";;
     2) chapter_title="2 Getting Started";;
@@ -55,7 +51,8 @@ for chapter in "docs/"*; do
     34) chapter_title="34 NP-Completeness";;
     35) chapter_title="35 Approximation Algorithms";;
   esac
-  target_file="$SOURCE_ROOT/$chapter_name.md"
+  target_filename="chapter$chapter_version"
+  target_file="$SOURCE_ROOT/$target_filename.md"
 
   echo "- $RED$chapter_name$END:"
 

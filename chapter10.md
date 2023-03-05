@@ -1,4 +1,4 @@
-<h1 style="text-align: center;">9 Medians and Order Statistics</h1>
+<h1 style="text-align: center;">10 Elementary Data Structures</h1>
 
 # 10.1 Stacks and queues
 
@@ -502,7 +502,7 @@ TRANSPOSE(a, b)
 > \end{array}
 > $$
 
-![](https://github.com/hendraanggrian/CLRS-Minimal/raw/assets/img/10.4-1.png)
+![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/img/10.4-1.png)
 
 ## 10.4-2
 

@@ -1,4 +1,4 @@
-<h1 style="text-align: center;">29 Linear Programming</h1>
+<h1 style="text-align: center;">30 Polynomials and the FFT</h1>
 
 # 30.1 Representing polynomials
 

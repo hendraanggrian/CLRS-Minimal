@@ -194,19 +194,19 @@ where $W$ is the LambertW function, and we should choose $t = 3$.
 
 - Figure 18.8(f)
 
-    ![](https://github.com/hendraanggrian/CLRS-Minimal/raw/assets/img/18.3-1-1.png)
+    ![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/img/18.3-1-1.png)
 
 - delete $C$
 
-    ![](https://github.com/hendraanggrian/CLRS-Minimal/raw/assets/img/18.3-1-2.png)
+    ![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/img/18.3-1-2.png)
 
 - delete $P$
 
-    ![](https://github.com/hendraanggrian/CLRS-Minimal/raw/assets/img/18.3-1-3.png)
+    ![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/img/18.3-1-3.png)
 
 - delete $V$
 
-    ![](https://github.com/hendraanggrian/CLRS-Minimal/raw/assets/img/18.3-1-4.png)
+    ![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/img/18.3-1-4.png)
 
 ## 18.3-2
 

@@ -1,4 +1,4 @@
-<h1 style="text-align: center;">19 Fibonacci Heaps</h1>
+<h1 style="text-align: center;">20 van Emde Boas Trees</h1>
 
 # 20.1 Preliminary approaches
 

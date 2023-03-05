@@ -8,19 +8,19 @@
 
 - Complete binary tree of $height = 3$:
 
-  ![](https://github.com/hendraanggrian/CLRS-Minimal/raw/assets/img/13.1-1-1.png)
+  ![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/img/13.1-1-1.png)
 
 - Red-black tree of $black\text-heights = 2$:
 
-  ![](https://github.com/hendraanggrian/CLRS-Minimal/raw/assets/img/13.1-1-2.png)
+  ![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/img/13.1-1-2.png)
 
 - Red-black tree of $black\text-heights = 3$:
 
-  ![](https://github.com/hendraanggrian/CLRS-Minimal/raw/assets/img/13.1-1-3.png)
+  ![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/img/13.1-1-3.png)
 
 - Red-black tree of $black\text-heights = 4$:
 
-  ![](https://github.com/hendraanggrian/CLRS-Minimal/raw/assets/img/13.1-1-4.png)
+  ![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/img/13.1-1-4.png)
 
 ## 13.1-2
 
@@ -31,7 +31,7 @@
 
 We don't draw the _wrong_ red-black tree; however, we draw the adjusted correct tree:
 
-![](https://github.com/hendraanggrian/CLRS-Minimal/raw/assets/img/13.1-2-1.png)
+![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/img/13.1-2-1.png)
 
 ## 13.1-3
 
@@ -136,27 +136,27 @@ If we chose to set the color of $z$ to black then we would be violating property
 
 - insert $41$:
 
-  ![](https://github.com/hendraanggrian/CLRS-Minimal/raw/assets/img/13.3-2-1.png)
+  ![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/img/13.3-2-1.png)
 
 - insert $38$:
 
-  ![](https://github.com/hendraanggrian/CLRS-Minimal/raw/assets/img/13.3-2-2.png)
+  ![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/img/13.3-2-2.png)
 
 - insert $31$:
 
-  ![](https://github.com/hendraanggrian/CLRS-Minimal/raw/assets/img/13.3-2-3.png)
+  ![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/img/13.3-2-3.png)
 
 - insert $12$:
 
-  ![](https://github.com/hendraanggrian/CLRS-Minimal/raw/assets/img/13.3-2-4.png)
+  ![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/img/13.3-2-4.png)
 
 - insert $19$:
 
-  ![](https://github.com/hendraanggrian/CLRS-Minimal/raw/assets/img/13.3-2-5.png)
+  ![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/img/13.3-2-5.png)
 
 - insert $8$:
 
-  ![](https://github.com/hendraanggrian/CLRS-Minimal/raw/assets/img/13.3-2-6.png)
+  ![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/img/13.3-2-6.png)
 
 ## 13.3-3
 
@@ -216,31 +216,31 @@ in the else-case of line 9. Since we are deleting from a red-black tree, the oth
 
 - initial:
 
-    ![](https://github.com/hendraanggrian/CLRS-Minimal/raw/assets/img/13.4-3-1.png)
+    ![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/img/13.4-3-1.png)
 
 - delete $8$:
 
-    ![](https://github.com/hendraanggrian/CLRS-Minimal/raw/assets/img/13.4-3-2.png)
+    ![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/img/13.4-3-2.png)
 
 - delete $12$:
 
-    ![](https://github.com/hendraanggrian/CLRS-Minimal/raw/assets/img/13.4-3-3.png)
+    ![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/img/13.4-3-3.png)
 
 - delete $19$:
 
-    ![](https://github.com/hendraanggrian/CLRS-Minimal/raw/assets/img/13.4-3-4.png)
+    ![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/img/13.4-3-4.png)
 
 - delete $31$:
 
-    ![](https://github.com/hendraanggrian/CLRS-Minimal/raw/assets/img/13.4-3-5.png)
+    ![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/img/13.4-3-5.png)
 
 - delete $38$:
 
-    ![](https://github.com/hendraanggrian/CLRS-Minimal/raw/assets/img/13.4-3-6.png)
+    ![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/img/13.4-3-6.png)
 
 - delete $41$:
 
-    ![](https://github.com/hendraanggrian/CLRS-Minimal/raw/assets/img/13.4-3-7.png)
+    ![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/img/13.4-3-7.png)
 
 ## 13.4-4
 
@@ -294,29 +294,29 @@ No, the red-black tree will not necessarily be the same.
 
     - initial:
 
-        ![](https://github.com/hendraanggrian/CLRS-Minimal/raw/assets/img/13.4-7-1.png)
+        ![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/img/13.4-7-1.png)
 
     - insert $1$:
 
-        ![](https://github.com/hendraanggrian/CLRS-Minimal/raw/assets/img/13.4-7-2.png)
+        ![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/img/13.4-7-2.png)
 
     - delete $1$:
 
-        ![](https://github.com/hendraanggrian/CLRS-Minimal/raw/assets/img/13.4-7-3.png)
+        ![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/img/13.4-7-3.png)
 
 - Example 2:
 
     - initial:
 
-        ![](https://github.com/hendraanggrian/CLRS-Minimal/raw/assets/img/13.4-7-4.png)
+        ![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/img/13.4-7-4.png)
 
     - insert $1$:
 
-        ![](https://github.com/hendraanggrian/CLRS-Minimal/raw/assets/img/13.4-7-5.png)
+        ![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/img/13.4-7-5.png)
 
     - delete $1$:
 
-        ![](https://github.com/hendraanggrian/CLRS-Minimal/raw/assets/img/13.4-7-6.png)
+        ![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/img/13.4-7-6.png)
 
 # Problem 13-1 Persistent dynamic sets
 
