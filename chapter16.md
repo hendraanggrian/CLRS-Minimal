@@ -605,4 +605,4 @@ which means that $x$ is the element that is removed from the cache unless it is 
 <!-- hotfix: KaTeX -->
 <!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']]}, messageStyle: "none" });</script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>

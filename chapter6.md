@@ -277,23 +277,23 @@ Applying the master method, we get that $T(n) = \Omega(n\lg n)$.
 
 1. Original heap.
 
-    ![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/img/6.5-1-1.png)
+    ![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/images/6.5-1-1.png)
 
 2. Extract the max node $15$, then move $1$ to the top of the heap.
 
-    ![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/img/6.5-1-2.png)
+    ![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/images/6.5-1-2.png)
 
 3. Since $13 > 9 > 1$, swap $1$ and $13$.
 
-    ![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/img/6.5-1-3.png)
+    ![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/images/6.5-1-3.png)
 
 4. Since $12 > 5 > 1$, swap $1$ and $12$.
 
-    ![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/img/6.5-1-4.png)
+    ![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/images/6.5-1-4.png)
 
 5. Since $6 > 2 > 1$, swap $1$ and $6$.
 
-    ![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/img/6.5-1-5.png)
+    ![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/images/6.5-1-5.png)
 
 ## 6.5-2
 
@@ -301,23 +301,23 @@ Applying the master method, we get that $T(n) = \Omega(n\lg n)$.
 
 1. Original heap.
 
-    ![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/img/6.5-2-1.png)
+    ![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/images/6.5-2-1.png)
 
 2. Since $\text{MAX-HEAP-INSERT}(A, 10)$ is called, we append a node assigned value $-\infty$.
 
-    ![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/img/6.5-2-2.png)
+    ![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/images/6.5-2-2.png)
 
 3. Update the $key$ value of the new node.
 
-    ![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/img/6.5-2-3.png)
+    ![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/images/6.5-2-3.png)
 
 4. Since the parent $key$ is smaller than $10$, the nodes are swapped.
 
-    ![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/img/6.5-2-4.png)
+    ![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/images/6.5-2-4.png)
 
 5. Since the parent $key$ is smaller than $10$, the nodes are swapped.
 
-    ![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/img/6.5-2-5.png)
+    ![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/images/6.5-2-5.png)
 
 ## 6.5-3
 
@@ -633,4 +633,4 @@ We can also do it in place if we allow for "partial" tableaus where only a porti
 <!-- hotfix: KaTeX -->
 <!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']]}, messageStyle: "none" });</script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>

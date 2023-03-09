@@ -8,23 +8,23 @@
 
 - $height = 2$:
 
-  ![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/img/12.1-1-1.png)
+  ![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/images/12.1-1-1.png)
 
 - $height = 3$:
 
-  ![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/img/12.1-1-2.png)
+  ![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/images/12.1-1-2.png)
 
 - $height = 4$:
 
-  ![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/img/12.1-1-3.png)
+  ![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/images/12.1-1-3.png)
 
 - $height = 5$:
 
-  ![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/img/12.1-1-4.png)
+  ![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/images/12.1-1-4.png)
 
 - $height = 6$:
 
-  ![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/img/12.1-1-5.png)
+  ![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/images/12.1-1-5.png)
 
 ## 12.1-2
 
@@ -571,4 +571,4 @@ $$
 <!-- hotfix: KaTeX -->
 <!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']]}, messageStyle: "none" });</script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>

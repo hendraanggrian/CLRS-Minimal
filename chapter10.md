@@ -502,7 +502,7 @@ TRANSPOSE(a, b)
 > \end{array}
 > $$
 
-![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/img/10.4-1.png)
+![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/images/10.4-1.png)
 
 ## 10.4-2
 
@@ -823,4 +823,4 @@ $$
 <!-- hotfix: KaTeX -->
 <!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']]}, messageStyle: "none" });</script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>

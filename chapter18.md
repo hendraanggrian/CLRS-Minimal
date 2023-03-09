@@ -194,19 +194,19 @@ where $W$ is the LambertW function, and we should choose $t = 3$.
 
 - Figure 18.8(f)
 
-    ![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/img/18.3-1-1.png)
+    ![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/images/18.3-1-1.png)
 
 - delete $C$
 
-    ![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/img/18.3-1-2.png)
+    ![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/images/18.3-1-2.png)
 
 - delete $P$
 
-    ![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/img/18.3-1-3.png)
+    ![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/images/18.3-1-3.png)
 
 - delete $V$
 
-    ![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/img/18.3-1-4.png)
+    ![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/images/18.3-1-4.png)
 
 ## 18.3-2
 
@@ -292,4 +292,4 @@ $$O(2(h + h)) = O(\lg n).$$
 <!-- hotfix: KaTeX -->
 <!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']]}, messageStyle: "none" });</script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>

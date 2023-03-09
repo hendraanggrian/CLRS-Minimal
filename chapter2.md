@@ -6,7 +6,7 @@
 
 > Using Figure 2.2 as a model, illustrate the operation of $\text{INSERTION-SORT}$ on the array $A = \langle 31, 41, 59, 26, 41, 58 \rangle$.
 
-![2.1-1-1](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/img/2.1-1-1.png)
+![2.1-1-1](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/images/2.1-1-1.png)
 
 The operation of $\text{INSERTION-SORT}$ on the array $A = \langle 31, 41, 59, 26, 41, 58 \rangle$. Array indices appear above the rectangles, and values stored in the array positions appear within the rectangles.
 
@@ -510,4 +510,4 @@ MERGE-INVERSIONS(A, p, q, r)
 <!-- hotfix: KaTeX -->
 <!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']]}, messageStyle: "none" });</script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>

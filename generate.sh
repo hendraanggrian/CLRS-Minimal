@@ -1,10 +1,5 @@
 #!/bin/bash
 
-readonly END=[0m
-readonly RED=[91m
-readonly GREEN=[92m
-readonly YELLOW=[93m
-
 readonly SOURCE_ROOT="$(cd "$(dirname "$0")" && pwd)"
 
 echo
@@ -54,17 +49,16 @@ for chapter in "docs/"*; do
   target_filename="chapter$chapter_version"
   target_file="$SOURCE_ROOT/$target_filename.md"
 
-  echo "- $RED$chapter_name$END:"
-
+  echo "- $chapter_name:"
   if [[ -f "$target_file" ]]; then
     rm "$target_file"
   fi
-  echo "<h1 style=\"text-align: center;\">$chapter_title</h1>" >> "$target_file"
+  echo "<h1 style=\"text-align: center;\">$chapter_title</h1>" > "$target_file"
 
   for section in "$chapter/"*; do
     if [[ -f "$section" ]]; then # there is 1 directory here
       section_name="$(basename "$section")"
-      echo "  - $GREEN$section_name$END"
+      echo "  - $section_name"
 
       echo >> "$target_file"
       echo "$(<docs_title/$chapter_name/$section_name)" >> "$target_file"
@@ -73,9 +67,10 @@ for chapter in "docs/"*; do
     fi
   done
 
+  echo "  - Problems:"
   for problem in "$chapter/Problems/"*; do
     problem_name="$(basename "$problem")"
-    echo "  - $YELLOW$problem_name$END"
+    echo "    - $problem_name"
 
     echo >> "$target_file"
     echo "$(<docs_title/$chapter_name/Problems/$problem_name)" >> "$target_file"
@@ -87,7 +82,7 @@ for chapter in "docs/"*; do
   echo "<!-- hotfix: KaTeX -->" >> "$target_file"
   echo "<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->" >> "$target_file"
   echo "<script type=\"text/javascript\" src=\"http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML\"></script>" >> "$target_file"
-  echo "<script type=\"text/x-mathjax-config\">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']]}, messageStyle: \"none\" });</script>" >> "$target_file"
+  echo "<script type=\"text/x-mathjax-config\">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>" >> "$target_file"
 done
 
 echo

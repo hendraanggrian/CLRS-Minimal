@@ -251,8 +251,8 @@ Let $G$ be the graph shown in the first picture, $G_\pi = (V, E_\pi)$ be the gra
 We could see that $E_\pi$ will never be produced by running BFS on $G$.
 
 <center>
-![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/img/22.2-6-2.png)
-![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/img/22.2-6-1.png)
+![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/images/22.2-6-2.png)
+![](https://github.com/hendraanggrian/CLRS-Paperback/raw/assets/images/22.2-6-1.png)
 </center>
 
 - If $y$ precedes $v$ in the $Adj[s]$. We'll dequeue $y$ before $v$, so $u.\pi$ and $x.\pi$ are both $y$. However, this is not the case.
@@ -883,4 +883,4 @@ REACHABILITY(u)
 <!-- hotfix: KaTeX -->
 <!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']]}, messageStyle: "none" });</script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>
