@@ -1,3 +1,8 @@
+<!-- hotfix: KaTeX -->
+<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>
+
 <h1 style="text-align: center;">9 Medians and Order Statistics</h1>
 
 # 9.1 Minimum and maximum
@@ -283,8 +288,6 @@ MEDIAN(X, Y, n)
 **b.** The running time of building a max-priority queue (using a heap) from the numbers is $O(n)$, and the running time of each call $\text{EXTRACT-MAX}$ is $O(\lg n)$. Therefore, the total running time is $O(n + i\lg n)$.
 
 **c.** The running time of finding and partitioning around the $i$th largest number is $O(n)$, and the running time of sorting the $i$ largest numbers is $O(i\lg i)$. Therefore, the total running time is $O(n + i\lg i)$.
-
-
 # Problem 9-2 Weighted median
 
 > For $n$ distinct elements $x_1, x_2, \ldots, x_n$ with positive weights $w_1, w_2, \ldots, w_n$ such that $\sum_{i = 1}^n w_i = 1$, the **_weighted (lower) median_** is the element $x_k$ satisfying
@@ -326,8 +329,6 @@ e. Observe that
 $$\sum_{i = 1}^n w_id(p, p_i) = \sum_{i = 1}^n w_i |p_x - (p_i)_x| + \sum\_{i = 1}^n w_i|p_y - (p_i)_y|.$$
 
 It will suffice to minimize each sum separately, which we can do since we choose $p_x$ and $p_y$ individually. By part (e), we simply take $p = (p_x, p_y)$ to be such that $p_x$ is the weighted median of the $x$-coordinates of the $p_i$'s and py is the weighted medain of the $y$-coordiantes of the $p_i$'s.
-
-
 # Problem 9-3 Small order statistics
 
 > We showed that the worst-case number $T(n)$ of comparisons used by $\text{SELECT}$ to select the $i$th order statistic from $n$ numbers satisfies $T(n) = \Theta(n)$, but the constant hidden by the $\Theta$-notation is rather large. When $i$ is small relative to $n$, we can implement a different procedure that uses $\text{SELECT}$ as a subroutine but makes fewer comparisons in the worst case.
@@ -351,8 +352,6 @@ It will suffice to minimize each sum separately, which we can do since we choose
 > **d.** Show that if $i = n / k$ for $k \ge 2$, then $U_i(n) = n + O(T(2n / k)\lg k)$.
 
 (Removed)
-
-
 # Problem 9-4 Alternative analysis of randomized selection
 
 > In this problem, we use indicator random variables to analyze the $\text{RANDOMIZED-SELECT}$ procedure in a manner akin to our analysis of $\text{RANDOMIZED-QUICKSORT}$ in Section 7.4.2.
@@ -374,8 +373,3 @@ It will suffice to minimize each sum separately, which we can do since we choose
 > **d.** Conclude that, assuming all elements of array $A$ are distinct, $\text{RANDOMIZED-SELECT}$ runs in expected time $O(n)$.
 
 (Removed)
-
-<!-- hotfix: KaTeX -->
-<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>

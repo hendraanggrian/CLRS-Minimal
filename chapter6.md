@@ -1,3 +1,8 @@
+<!-- hotfix: KaTeX -->
+<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>
+
 <h1 style="text-align: center;">6 Heapsort</h1>
 
 # 6.1 Heaps
@@ -495,8 +500,6 @@ def MERGE-SORTED-LISTS(lists)
 - $\text{BUILD-MAX-HEAP}'(A)$: $A = \langle 3, 1, 2 \rangle$.
 
 **b.** Each insert step takes at most $O(\lg n)$, since we are doing it $n$ times, we get a bound on the runtime of $O(n\lg n)$.
-
-
 # Problem 6.2 Maintaining the heap property
 
 > A **_$d$-ary heap_** is like a binary heap, but (with one possible exception) non-leaf nodes have $d$ children instead of $2$ children.
@@ -581,8 +584,6 @@ d-ARY-INCREASE-KEY(A, i, key)
         exchange A[i] with A[d-ARY-PARENT(i)]
         i = d-ARY-PARENT(i)
 ```
-
-
 # Problem 6.3 Building a heap
 
 > An $m \times n$ Young tableau is an $m \times n$ matrix such that the entries of each row are in sorted order from left to right and the entries of each column are in sorted order from top to bottom. Some of the entries of a Young tableau may be $\infty$, which we treat as nonexistent elements. Thus, a Young tableau can be used to hold $r \le mn$ finite numbers.
@@ -629,8 +630,3 @@ $$T(p) = T(p - 1) + O(1) = T(p - 2) + O(1) + O(1) = \cdots = O(p).$$
 We can also do it in place if we allow for "partial" tableaus where only a portion of the top rows (and a portion of the last of them) is in the tableau. Then we can build the tableau in place and then start putting each minimal element to the end. This would be asymptotically equal, but use constant memory. It would also sort the array in reverse.
 
 **f.** We start from the lower-left corner. We check the current element $current$ with the one we're looking for $key$ and move up if $current > key$ and right if $current < key$. We declare success if $current = key$ and otherwise terminate if we walk off the tableau.
-
-<!-- hotfix: KaTeX -->
-<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>

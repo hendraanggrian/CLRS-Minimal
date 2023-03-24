@@ -1,3 +1,8 @@
+<!-- hotfix: KaTeX -->
+<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>
+
 <h1 style="text-align: center;">24 Single-Source Shortest Paths</h1>
 
 # 24.1 The Bellman-Ford algorithm
@@ -537,8 +542,6 @@ We will prove this by induction on the number of relaxations performed. For the 
 **b.** Suppose that we are trying to find the shortest path from $s$ to $v$. Then, list out the vertices of this shortest path $v_{k_1}, v_{k_2}, \dots, v_{k_m}$. Then, we have that the number of times that the sequence $\\{k_i\\}\_i$ goes from increasing to decreasing or from decreasing to increasing is the number of passes over the edges that are necessary to notice this path. This is because any increasing sequence of vertices will be captured in a pass through $E_f$ and any decreasing sequence will be captured in a pass through $E_b$. Any sequence of integers of length $|V|$ can only change direction at most $\lfloor |V| / 2 \rfloor$ times. However, we need to add one more in to account for the case that the source appears later in the ordering of the vertices than $v_{k_2}$, as it is in a sense initially expecting increasing vertex indices, as it runs through $E_f$ before $E_b$.
 
 **c.** It does not improve the asymptotic runtime of Bellman ford, it just drops the runtime from having a leading coefficient of $1$ to a leading coefficient of $\frac{1}{2}$. Both in the original and in the modified version, the runtime is $O(EV)$.
-
-
 # Problem 24-2 Nesting boxes
 
 > A $d$-dimensional box with dimensions $(x_1, x_2, \ldots, x_d)$ **_nests_** within another box with dimensions $(y_1, y_2, \ldots, y_d)$ if there exists a permutation $\pi$ on $\\{1, 2, \ldots, d\\}$ such that $x_{\pi(1)} < y_1$, $x_{\pi(2)} < y_2$, $\ldots$, $x_{\pi(d)} < y_d$.
@@ -554,8 +557,6 @@ We will prove this by induction on the number of relaxations performed. For the 
 **b.** Box $x$ nests inside box $y$ if and only if the increasing sequence of dimensions of $x$ is component-wise strictly less than the increasing sequence of dimensions of $y$. Thus, it will suffice to sort both sequences of dimensions and compare them. Sorting both length $d$ sequences is done in $O(d\lg d)$, and comparing their elements is done in $O(d)$, so the total time is $O(d\lg d)$.
 
 **c.** We will create a nesting-graph $G$ with vertices $B_1, \dots, B_n$ as follows. For each pair of boxes $B_i$ , $B_j$, we decide if one nests inside the other. If $B_i$ nests in $B_j$, draw an arrow from $B_i$ to $B_j$. If $B_j$ nests in $B_i$, draw an arrow from $B_j$ to $B_i$. If neither nests, draw no arrow. To determine the arrows efficiently, after sorting each list of dimensions in $O(nd\lg d)$ we compair all pairs of boxes using the algorithm from part (b) in $O(n^2 d)$. By part (a), the resulted graph is acyclic, which allows us to easily find the longest chain in it in $O(n^2)$ in a bottom-up manner. This chain is our answer. Thus, the total time is $O(nd\max(\lg d, n))$.
-
-
 # Problem 24-3 Arbitrage
 
 > **_Arbitrage_** is the use of discrepancies in currency exchange rates to transform one unit of a currency into more than one unit of the same currency. For example, suppose that $1$ U.S. dollar buys $49$ Indian rupees, $1$ Indian rupee buys $2$ Japanese yen, and $1$ Japanese yen buys $0.0107$ U.S. dollars. Then, by converting currencies, a trader can start with $1$ U.S. dollar and buy $49 \times 2 \times 0.0107 = 1.0486$ U.S. dollars, thus turning a profit of $4.86$ percent.
@@ -581,8 +582,6 @@ R[i_1, i_2] · R[i_2, i_3] \cdot \cdots \cdot R[i_k, i_1] & > 1 \\\\
 $$
 
 **b.** To do this, we first perform the same modification of all the edge weights as done in part (a) of this problem. Then, we wish to detect the negative weight cycle. To do this, we relax all the edges $|V| − 1$ many times, as in BellmanFord algorithm. Then, we record all of the $d$ values of the vertices. Then, we relax all the edges $|V|$ more times. Then, we check to see which vertices had their $d$ value decrease since we recorded them. All of these vertices must lie on some (possibly disjoint) set of negative weight cycles. Call $S$ this set of vertices. To find one of these cycles in particular, we can pick any vertex in $S$ and greedily keep picking any vertex that it has an edge to that is also in $S$. Then, we just keep an eye out for a repeat. This finds us our cycle. We know that we will never get to a dead end in this process because the set $S$ consists of vertices that are in some union of cycles, and so every vertex has out degree at least $1$.
-
-
 # Problem 24-4 Gabow's scaling algorithm for single-source shortest paths
 
 > A **_scaling_** algorithm solves a problem by initially considering only the highestorder bit of each relevant input value (such as an edge weight). It then refines the initial solution by looking at the two highest-order bits. It progressively looks at more and more high-order bits, refining the solution each time, until it has examined all bits and computed the correct solution.
@@ -658,8 +657,6 @@ $$
 $$
 
 **f.** By part (a) we can compute $\hat\delta_i(s, v)$ for all $v \in V$ in $O(E)$ time. If we have already computed $\delta_i - 1$ then we can compute $\delta_i$ in $O(E)$ time. Since we can compute $\delta_1$ in $O(E)$ by part b, we can compute $\delta_i$ from scratch in $O(iE)$ time. Thus, we can compute $\delta = \delta_k$ in $O(Ek) = O(E\lg W)$ time.
-
-
 # Problem 24-5 Karp's minimum mean-weight cycle algorithm
 
 > Let $G = (V, E)$ be a directed graph with weight function $w: E \to \mathbb R$, and let $n = |V|$. We define the **_mean weight_** of a cycle $c = \langle e_1, e_2, \ldots, e_k \rangle$ of edges in $E$ to be
@@ -741,8 +738,6 @@ Since they are both equal to zero, they are both equal to each other.
 **g.** By the previous part, it suffices to compute the expression on the previous line. We will start by creating a table that lists $\delta_k(s, v)$ for every $k \in \\{1, \ldots, n\\}$ and $v \in V$. This can be done in time $O(V(E + V))$ by creating a $|V|$ by $|V|$ table, where the $k$th row and vth column represent $\delta_k(s, v)$ when wanting to compute a particular entry, we need look at a number of entries in the previous row equal to the in degree of the vertex we want to compute.
 
 So, summing over the computation required for each row, we need $O(E + V)$. Note that this total runtime can be bumped down to $O(VE)$ by not including in the table any isolated vertices, this will ensure that $E \in \Omega(V)$. So, $O(V(E + V))$ becomes $O(VE)$. Once we have this table of values computed, it is simple to just replace each row with the last row minus what it was, and divide each entry by $n - k$, then, find the min column in each row, and take the max of those numbers.
-
-
 # Problem 24-6 Bitonic shortest paths
 
 > A sequence is **_bitonic_** if it monotonically increases and then monotonically decreases, or if by a circular shift it monotonically increases and then monotonically decreases. For example the sequences $\langle 1, 4, 6, 8, 3, -2 \rangle$, $\langle 9, 2, -4, -10, -5 \rangle$, and $\langle 1, 2, 3, 4 \rangle$ are bitonic, but $\langle 1, 3, 12, 4, 2, 10 \rangle$ is not bitonic. (See Problem 15-3 for the bitonic euclidean traveling-salesman problem.)
@@ -752,8 +747,3 @@ So, summing over the computation required for each row, we need $O(E + V)$. Note
 > Give the most efficient algorithm you can to solve this problem, and analyze its running time.
 
 We'll use the Bellman-Ford algorithm, but with a careful choice of the order in which we relax the edges in order to perform a smaller number of $\text{RELAX}$ operations. In any bitonic path there can be at most two distinct increasing sequences of edge weights, and similarly at most two distinct decreasing sequences of edge weights. Thus, by the path-relaxation property, if we relax the edges in order of increasing weight then decreasing weight twice (for a total of four times relaxing every edge) the we are guaranteed that $v.d$ will equal $\delta(s, v)$ for all $v \in V$ . Sorting the edges takes $O(E\lg E)$. We relax every edge $4$ times, taking $O(E)$. Thus the total runtime is $O(E\lg E) + O(E) = O(E\lg E)$, which is asymptotically faster than the usual $O(VE)$ runtime of Bellman-Ford.
-
-<!-- hotfix: KaTeX -->
-<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>

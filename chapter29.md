@@ -1,3 +1,8 @@
+<!-- hotfix: KaTeX -->
+<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>
+
 <h1 style="text-align: center;">29 Linear Programming</h1>
 
 # 29.1 Standard and slack forms
@@ -1072,8 +1077,6 @@ $$
 We have a number of variables equal to $n + m$ and a number of constraints equal to $2 + 2n + 2m$, so both are polynomial in $n$ and $m$. Also, any assignment of variables which satisfy all of these constraints will be a feasible solution to both the problem and its dual that cause the respective objective functions to take the same value, and so, must be an optimal solution to both the original problem and its dual. This of course assumes that the linear inequality feasibility solver doesn't merely say that the inequalities are satisfiable, but actually returns a satisfying assignment.
 
 Lastly, it is necessary to note that if there is some optimal solution $x$, then, we can obtain an optimal solution for the dual that makes the objective functions equal by theorem 29.10. This ensures that the two constraints we added to force the objectives of the primal and the dual to be equal don't cause us to change the optimal solution to the linear program.
-
-
 # Problem 29-2 Complementary slackness
 
 > **_Complementary slackness_** describes a relationship between the values of primal variables and dual constraints and between the values of dual variables and primal constraints. Let $\bar x$ be a feasible solution to the primal linear program given in $\text{(29.16)–(29.18)}$, and let $\bar y$ be a feasible solution to the dual linear program given in $\text{(29.83)–(29.85)}$. Complementary slackness states that the following conditions are necessary and sufficient for $\bar x$ and $\bar y$ to be optimal:
@@ -1123,8 +1126,6 @@ $$
 This implies that the optimal objective value of the primal solution is strictly less than the optimal value of the dual solution, a contradiction. The argument for the second case is identical. Thus, $x$ and $y$ are optimal solutions if and only if complementary slackness holds.
 
 **c.** This follows immediately from part (b). If $x$ is feasible and $y$ satisfies conditions 1, 2, and 3, then complementary slackness holds, so $x$ and $y$ are optimal. On the other hand, if $x$ is optimal, then the dual linear program must have an optimal solution $y$ as well, according to Theorem 29.10. Optimal solutions are feasible, and by part (b), $x$ and $y$ satisfy complementary slackness. Thus, conditions 1, 2, and 3 hold.
-
-
 # Problem 29-3 Integer linear programming
 
 > An **_integer linear-programming problem_** is a linear-programming problem with the additional constraint that the variables $x$ must take on integral values. Exercise 34.5-3 shows that just determining whether an integer linear program has a feasible solution is NP-hard, which means that there is no known polynomial-time algorithm for this problem.
@@ -1144,8 +1145,6 @@ This implies that the optimal objective value of the primal solution is strictly
 Since we have just exhibited an example of a linear program that has a different optimal solution as it's dual, the duality theorem does not hold for integer linear program.
 
 **c.** The first inequality comes from looking at the fact that by adding the restriction that the solution must be integer valued, we obtain a set of feasible solutions that is a subset of the feasible solutions of the original primal linear program. Since, to get $IP$, we are taking the max over a subset of the things we are taking a max over to get $P$, we must get a number that is no larger. The third inequality is similar, except since we are taking min over a subset, the inequality goes the other way. The middle equality is given by Theorem 29.10.
-
-
 # Problem 29-4 Farkas'ss lemma
 
 > Let $A$ be an $m \times n$ matrix and $c$ be an $n$-vector. Then Farkas's lemma states that exactly one of the systems
@@ -1177,8 +1176,6 @@ and its corresponding dual program
 $$\text{minimize } -c^{\text T}x \text{ subject to } Ax \le 0.$$
 
 Since the second system fails, the primal is infeasible. However, the dual is always feasible by taking $x = 0$. If there were a finite solution to the dual, then duality says there would also be a finite solution to the primal. Thus, the dual must be unbounded. Thus, there must exist a vector $x$ which makes $−c^{\text T}x$ arbitrarily small, implying that there exist vectors $x$ for which $c^{\text T}x$ is strictly greater than $0$. Thus, there is always at least one solution.
-
-
 # Problem 29-5 Minimum-cost circulation
 
 > In this problem, we consider a variant of the minimum-cost-flow problem from Section 29.2 in which we are not given a demand, a source, or a sink. Instead, we are given, as before, a flow network and edge costs $a(u, v)$ flow is feasible if it satisfies the capacity constraint on every edge and flow conservation at _every_ vertex. The goal is to find, among all feasible flows, the one of minimum cost. We call this problem the **_minimum-cost-circulation problem_**.
@@ -1198,8 +1195,3 @@ Since the second system fails, the primal is infeasible. However, the dual is al
 **c.** We assume that the edge $(t, s)$ is not in $E$ because that would be a silly edge to have for a maximum flow from $s$ to $t$. If it is there, remove it and it won't decrease the maximum flow. Let $V' = V$ and $E' = E \cup \\{(t, s)\\}$. For the edges of $E'$ that are in $E$, let the capacity be as it is in $E$ and let the cost be $0$. For the other edge, we set $c(t, s) = \infty$ and $a(t, s) = -1$. Then, if we have any circulation in $G'$, it will be trying to get as much flow to go across the edge $(t, s)$ in order to drive the objective function lower, the other flows will have no affect on the objective function. Then, by Kirchhoff's current law (a.k.a. common sense), the amount going across the edge $(t, s)$ is the same as the total flow in the rest of the network from $s$ to $t$. This means that maximizing the flow across the edge $(t, s)$ is also maximizing the flow from $s$ to $t$. So, all we need to do to recover the maximum flow for the original network is to keep the same flow values, but throw away the edge $(t, s)$.
 
 **d.** Suppose that $s$ is the vertex that we are computing shortest distance from. Then, we make the circulation network by first starting with the original graph, giving each edge a cost of whatever it was before and infinite capacity. Then, we place an edge going from every vertex that isn't $s$ to $s$ that has a capacity of $1$ and a cost of $-|E|$ times the largest cost appearing among all the edge costs already in the graph. Giving it such a negative cost ensures that placing other flow through the network in order to get a unit of flow across it will cause the total cost to decrease. Then, to recover the shortest path for any vertex, start at that vertex and then go to any vertex that is sending a unit of flow to it. Repeat this until you've reached $s$.
-
-<!-- hotfix: KaTeX -->
-<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>

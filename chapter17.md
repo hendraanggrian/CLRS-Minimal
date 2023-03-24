@@ -1,3 +1,8 @@
+<!-- hotfix: KaTeX -->
+<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>
+
 <h1 style="text-align: center;">17 Amortized Analysis</h1>
 
 # 17.1 Aggregate analysis
@@ -332,8 +337,6 @@ BIT-REVERSED-INCREMENT(a)
 By a similar analysis to the binary counter (just look at the problem in a mirror), this $\text{BIT-REVERSED-INCREMENT}$ will take constant ammortized time. So, to perform the bit-reversed permutation, have a normal binary counter and a bit reversed counter, then, swap the values of the two counters and increment. Do not swap however if those pairs of elements have already been swapped, which can be kept track of in a auxiliary array.
 
 **c.** The $\text{BIT-REVERSED-INCREMENT}$ procedure given in the previous part only uses single shifts to the right, not arbitrary shifts.
-
-
 # Problem 17-2 Making binary search dynamic
 
 > Binary search of a sorted array takes logarithmic search time, but the time to insert a new element is linear in the size of the array. We can improve the time for insertion by keeping several sorted arrays.
@@ -353,8 +356,6 @@ By a similar analysis to the binary counter (just look at the problem in a mirro
 We'll use the accounting method to analyse the amoritized cost. Assign a cost of $\lg n$ to each insertion. Thus, each item carries $\lg n$ credit to pay for its later merges as additional items are inserted. Since an individual item can only be merged into a larger list and there are only $\lg n$ lists, the credit pays for all future costs the item might incur. Thus, the amortized cost is $O(\lg n)$.
 
 **c.** Find the smallest $m$ such that $n_m \ne 0$ in the binary representation of $n$. If the item to be deleted is not in list $A_m$, remove it from its list and swap in an item from Am, arbitrarily. This can be done in $O(\lg n)$ time since we may need to search list $A_k$ to find the element to be deleted. Now simply break list $A_m$ into lists $A_0, A_1, \dots, A_{m − 1}$ by index. Since the lists are already sorted, the runtime comes entirely from making the splits, which takes $O(m)$ time. In the worst case, this is $O(\lg n)$.
-
-
 # Problem 17-3 Amortized weight-balanced trees
 
 > Consider an ordinary binary search tree augmented by adding to each node $x$ the attribute $x.size$ giving the number of keys stored in the subtree rooted at $x$. Let $\alpha$ be a constant in the range $1 / 2 \le \alpha < 1$. We say that a given node $x$ is **_$\alpha$-balanced_** if $x.left.size \le \alpha \cdot x.size$ and $x.right.size \le \alpha \cdot x.size$. The tree as a whole is **_$\alpha$-balanced_** if every node in the tree is $\alpha$-balanced. The following amortized approach to maintaining weight-balanced trees was suggested by G. Varghese.
@@ -444,8 +445,6 @@ $$
 **e.** Suppose that our tree is $\alpha$ balanced. Then, we know that performing a search takes time $O(\lg(n))$. So, we perform that search and insert the element that we need to insert or delete the element we found. Then, we may have made the tree become unbalanced. However, we know that since we only changed one position, we have only changed the $\Delta$ value for all of the parents of the node that we either inserted or deleted. Therefore, we can rebuild the balanced properties starting at the lowest such unbalanced node and working up.
 
 Since each one only takes ammortized constant time, and there are $O(\lg(n))$ many trees made unbalanced, tot total time to rebalanced every subtree is $O(\lg(n))$ ammortized time.
-
-
 # Problem 17-4 The cost of restructuring red-black trees
 
 > There are four basic operations on red-black trees that perform **_structural modifications_**: node insertions, node deletions, rotations, and color changes. We have seen that $\text{RB-INSERT}$ and $\text{RB-DELETE}$ use only $O(1)$ rotations, node insertions, and node deletions to maintain the red-black properties, but they may make many more color changes.
@@ -503,8 +502,6 @@ Since each one only takes ammortized constant time, and there are $O(\lg(n))$ ma
 **g.** In case 2 of $\text{RB-DELETE}$, we reduce the number of black nodes with two red children by $1$, thereby reducing the potential function by $2$. Since the change in potential is at least negative $1$, it pays for the structural modifications. Since the other cases cause constant structural changes, the total amortized cost is $O(n)$ making the amortized cost of each $\text{RB-DELETE-FIXUP}$ $O(1)$.
 
 **h.** As described above, whether we insert or delete in any of the cases, the potential function always pays for the changes made if they're nonterminating. If they're terminating then they already take constant time, so the amortized cost of any operation in a sequence of $m$ inserts and deletes is $O(1)$, making the toal amortized cost $O(m)$.
-
-
 # Problem 17-5 Competitive analysis of self-organizing lists with move-to-front
 
 > A **_self-organizing list_** is a linked list of $n$ elements, in which each element has a unique key. When we search for an element in the list, we are given a key, and we want to find an element with that key.
@@ -587,8 +584,3 @@ $$
 $$
 
 **h.** We showed that the amortized cost of each operation under the move to front heuristic was at most four times the cost of the operation using any other heuristic. Since the amortized cost added up over all these operation is at most the total (real) cost, so we have that the total cost with movetofront is at most four times the total cost with an arbitrary other heuristic.
-
-<!-- hotfix: KaTeX -->
-<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>

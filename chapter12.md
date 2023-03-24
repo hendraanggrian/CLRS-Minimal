@@ -1,3 +1,8 @@
+<!-- hotfix: KaTeX -->
+<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>
+
 <h1 style="text-align: center;">12 Binary Search Trees</h1>
 
 # 12.1 What is a binary search tree?
@@ -416,8 +421,6 @@ $$A(n) \le \frac{1}{n^{k / 2}} \sum_j\sum_i \frac{1}{a}.$$
 
 - **Worst-case:** every random choice is to the right (or all to the left) this will result in the same behavior as in the first part of this problem, $\Theta(n^2)$.
 - **Expected running time:** notice that when randomly choosing, we will pick left roughly half the time, so, the tree will be roughly balanced, so, we have that the depth is roughly $\lg(n)$, $\Theta(n\lg n)$.
-
-
 # Problem 12-2 Radix trees
 
 > Given two strings $a = a_0a_1 \ldots a_p$ and $b = b_0b_1 \ldots b_q$, where each $a_i$ and each $b_j$ is in some ordered set of characters, we say that string $a$ is **_lexicographically less than_** string $b$ if either
@@ -430,8 +433,6 @@ $$A(n) \le \frac{1}{n^{k / 2}} \sum_j\sum_i \frac{1}{a}.$$
 > The **_radix tree_** data structure shown in Figure 12.5 stores the bit strings $1011, 10, 011, 100$, and $0$. When searching for a key $a = a_0a_1 \ldots a_p$, we go left at a node of depth $i$ if $a_i = 0$ and right if $a_i = 1$. Let $S$ be a set of distinct bit strings whose lengths sum to $n$. Show how to use a radix tree to sort $S$ lexicographically in $\Theta(n)$ time. For the example in Figure 12.5, the output of the sort should be the sequence $0, 011, 10, 100, 1011$.
 
 (Removed)
-
-
 # Problem 12-3 Average node depth in a randomly built binary search tree
 
 > In this problem, we prove that the average depth of a node in a randomly built binary search tree with $n$ nodes is $O(\lg n)$. Although this result is weaker than that of Theorem 12.4, the technique we shall use reveals a surprising similarity between the building of a binary search tree and the execution of $\text{RANDOMIZED-QUICKSORT}$ from Section 7.3.
@@ -462,8 +463,6 @@ $$A(n) \le \frac{1}{n^{k / 2}} \sum_j\sum_i \frac{1}{a}.$$
 > **f.** Describe an implementation of quicksort in which the comparisons to sort a set of elements are exactly the same as the comparisons to insert the elements into a binary search tree. (The order in which comparisons are made may differ, but the same comparisons must occur.)
 
 (Removed)
-
-
 # Problem 12-4 Number of different binary trees
 
 > Let $b_n$ denote the number of different binary trees with $n$ nodes. In this problem, you will find a formula for $b_n$, as well as an asymptotic estimate.
@@ -567,8 +566,3 @@ b_n & =       \frac{1}{n + 1} \frac{(2n)!}{n!n!} \\\\
     & =       \frac{4^n}{\sqrt{\pi}n^{3 / 2}} (1 + O(1 / n)).
 \end{aligned}
 $$
-
-<!-- hotfix: KaTeX -->
-<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>

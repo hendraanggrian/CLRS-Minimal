@@ -1,3 +1,8 @@
+<!-- hotfix: KaTeX -->
+<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>
+
 <h1 style="text-align: center;">13 Red-Black Trees</h1>
 
 # 13.1 Properties of red-black trees
@@ -337,8 +342,6 @@ No, the red-black tree will not necessarily be the same.
 > **e.** Show how to use red-black trees to guarantee that the worst-case running time and space are $O(\lg n)$ per insertion or deletion.
 
 (Removed)
-
-
 # Problem 13-2 Join operation on red-black trees
 
 > The **_join_** operation takes two dynamic sets $S_1$ and $S_2$ and an element $x$ such that for any $x_1 \in S_1$ and $x_2 \in S_2$, we have $x_1.key \le x.key \le x_2.key$. It returns a set $S = S_1 \cup \\{x\\} \cup S_2$. In this problem, we investigate how to implement the join operation on red-black trees.
@@ -384,8 +387,6 @@ The time complexity is $O(\lg n)$.
 **e.** Same, if $T_1.bh\le T_2.bh$, then we can use the above algorithm symmetrically.
 
 **f.** $O(1) + O(\lg n) = O(\lg n)$.
-
-
 # Problem 13-3 AVL trees
 
 > An **_AVL tree_** is a binary search tree that is **_height balanced_**: for each node $x$, the heights of the left and right subtrees of $x$ differ by at most $1$. To implement an AVL tree, we maintain an extra attribute in each node: $x.h$ is the height of node $x$. As for any other binary search tree $T$, we assume that $T.root$ points to the root node.
@@ -467,8 +468,6 @@ AVL-INSERT(x, z)
             LEFT-ROTATE(T, y)
             y = y.p
 ```
-
-
 # Problem 13-4 Treaps
 
 > If we insert a set of $n$ items into a binary search tree, the resulting tree may be horribly unbalanced, leading to long search times. As we saw in Section 12.4, however, randomly built binary search trees tend to be balanced. Therefore, one strategy that, on average, builds a balanced tree for a fixed set of items would be to randomly permute the items and then insert them in that order into the tree.
@@ -572,8 +571,3 @@ $$
 $$
 
 **j.** By part (e), the number of rotations is $C + D$. By linearity of expectation, $\text E[C + D] = 2 - \frac{1}{k} - \frac{1}{n - k + 1} \le 2$ for any choice of $k$.
-
-<!-- hotfix: KaTeX -->
-<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>

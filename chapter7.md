@@ -1,3 +1,8 @@
+<!-- hotfix: KaTeX -->
+<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>
+
 <h1 style="text-align: center;">7 Quicksort</h1>
 
 # 7.1 Description of quicksort
@@ -299,8 +304,6 @@ HOARE-QUICKSORT(A, p, r)
         HOARE-QUICKSORT(A, p, q)
         HOARE-QUICKSORT(A, q + 1, r)
 ```
-
-
 # Problem 7-2 Quicksort with equal element values
 
 > The analysis of the expected running time of randomized quicksort in section 7.4.2 assumes that all element values are distinct. In this problem. we examine what happens when they are not.
@@ -353,8 +356,6 @@ QUICKSORT'(A, p, r)
 ```
 
 **d.** Since we don't recurse on elements equal to the pivot, the subproblem sizes with $\text{QUICKSORT}'$ are no larger than the subproblem sizes with $\text{QUICKSORT}$ when all elements are distinct.
-
-
 # Problem 7-3 Alternative quicksort analysis
 
 > An alternative analysis of the running time of randomized quicksort focuses on the expected running time of each individual recursive call to $\text{RANDOMIZED-QUICKSORT}$, rather than on the number of comparisons performed.
@@ -430,8 +431,6 @@ $$
     & =   n\lg n+\Theta(n).
 \end{aligned}
 $$
-
-
 # Problem 7-4 Stack depth for quicksort
 
 > The $\text{QUICKSORT}$ algorithm of Section 7.1 contains two recursive calls to itself. After $\text{QUICKSORT}$ calls $\text{PARTITION}$, it recursively sorts the left subarray and then it recursively sorts the right subarray. The second recursive call in $\text{QUICKSORT}$ is not really necessary; we can avoid it by using an iterative control structure. This technique, called **_tail recursion_**, is provided automatically by good compilers. Consider the following version of quicksort, which simulates tail recursion:
@@ -473,8 +472,6 @@ MODIFIED-TAIL-RECURSIVE-QUICKSORT(A, p, r)
             MODIFIED-TAIL-RECURSIVE-QUICKSORT(A, q + 1, r)
             r = q - 1
 ```
-
-
 # Problem 7-5 Median-of-3 partition
 
 > One way to improve the $\text{RANDOMIZED-QUICKSORT}$ procedure is to partition around a pivot that is chosen more carefully than by picking a random element from the subarray. One common approach is the **_median-of-3_** method: choose the pivot as the median (middle element) of a set of 3 elements randomly selected from the subarray. (See exercise 7.4-6.) For this problem, let us assume that the elements of the input array $A[1..n]$ are distinct and that $n \ge 3$. We denote the sorted output array by $A'[1..n]$. Using the median-of-3 method to choose the pivot element $x$, define $p_i = \Pr\\{x = A'[i]\\}$.
@@ -514,8 +511,6 @@ $$
 which, in the limit $n$ goes to infinity, is $\frac{13}{27}$ which is a constant that $>\frac{1}{3}$ as it was in the original randomized quicksort implementation.
 
 **d.** Even though we always choose the middle element as the pivot (which is the best case), the height of the recursion tree will be $\Theta(\lg n)$. Therefore, the running time is still $\Omega(n\lg n)$.
-
-
 # Problem 7-6 Fuzzy sorting of intervals
 
 > Consider the problem in which we do not know the numbers exactly. Instead, for each number, we know an interval on the real line to which it belongs. That is, we are given $n$ closed intervals of the form $[a_i, b_i]$, where $a_i \le b_i$. We wish to **_fuzzy-sort_** these intervals, i.e., to produce a permutation $\langle i_1, i_2, \ldots, i_n \rangle$ of the intervals such that for $j = 1, 2, \ldots, n$, there exists $c_j \in [a_{i_j}, b_{i_j}]$ satisfying $c_1 \le c_2 \le \cdots \le c_n$.
@@ -613,8 +608,3 @@ T(n) & \le 2T(n / 2) + \Theta(n) \\\\
 $$
 
 The $\text{FIND-INTERSECTION}$ will always return a non-empty region of overlap $[a, b]$ containing $x$ if the intervals all overlap at $x$. For this situation, every interval will be within the "middle" region since the "left" and "right" subarrays will be empty, lines 6 and 7 of $\text{FUZZY-SORT}$ are $\Theta(1)$. As a result, there is no recursion and the running time of $\text{FUZZY-SORT}$ is determined by the $\Theta(n)$ running time required to find the region of overlap. Therfore, if the input intervals all overlap at a point, then the expected worst-case running time is $\Theta(n)$.
-
-<!-- hotfix: KaTeX -->
-<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>

@@ -1,3 +1,8 @@
+<!-- hotfix: KaTeX -->
+<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>
+
 <h1 style="text-align: center;">21 Data Structures for Disjoint Sets</h1>
 
 # 21.1 Disjoint-set operations
@@ -337,8 +342,6 @@ $$
 **b.** As we run the **for** loop, we are picking off the smallest of the possible elements to be removed, knowing for sure that it will be removed by the next unused $\text{EXTRACT-MIN}$ operation. Then, since that $\text{EXTRACT-MIN}$ operation is used up, we can pretend that it no longer exists, and combine the set of things that were inserted by that segment with those inserted by the next, since we know that the $\text{EXTRACT-MIN}$ operation that had separated the two is now used up. Since we proceed to figure out what the various extract operations do one at a time, by the time we are done, we have figured them all out.
 
 **c.** We let each of the sets be represented by a disjoint set structure. To union them (as on line 6) just call $\text{UNION}$. Checking that they exist is just a matter of keeping track of a linked list of which ones exist(needed for line 5), initially containing all of them, but then, when deleting the set on line 6, we delete it from the linked list that we were maintaining. The only other interaction with the sets that we have to worry about is on line 2, which just amounts to a call of $\text{FIND-SET}(j)$. Since line 2 takes amortized time $\alpha(n)$ and we call it exactly $n$ times, then, since the rest of the **for** loop only takes constant time, the total runtime is $O(n\alpha(n))$.
-
-
 # Problem 21-2 Depth determination
 
 > In the **_depth-determination problem_**, we maintain a forest $\mathcal F = \\{T_i\\}$ of rooted trees under three operations:
@@ -403,8 +406,6 @@ GRAFT(r, v)
 ```
 
 **e.** The three implemented operations have the same asymptotic running time as $\text{MAKE}$, $\text{FIND}$, and $\text{UNION}$ for disjoint sets, so the worst-case runtime of $m$ such operations, $n$ of which are $\text{MAKE-TREE}$ operations, is $O(m\alpha(n))$.
-
-
 # Problem 21-3 Tarjan's off-line least-common-ancestors algorithm
 
 > The **_least common ancestor_** of two nodes $u$ and $v$ in a rooted tree $T$ is the node $w$ that is an ancestor of both $u$ and $v$ and that has the greatest depth in $T$. In the **_off-line least-common-ancestors problem_**, we are given a rooted tree $T$ and an arbitrary set $P = \\{\\{u, v\\}\\}$ of unordered pairs of nodes in $T$, and we wish to determine the least common ancestor of each pair in $P$.
@@ -446,8 +447,3 @@ It is not obvious what the ordering $\le_{LCA}$ is, as it will be implementation
 So, when we are done with running that subtree, all of their ancestor values will point to $w$ and their colors will be black, and their ancestor values will not change until $\text{LCA}(w)$ returns. However, we run $\text{LCA}(v)$ before $\text{LCA}(w)$ returns, so in the **for** loop on line 8 of $\text{LCA}(v)$, we will be considering the pair $\\{u, v\\}$, since $u.color = black$. Since $u.ancestor$ is still $w$, that is what will be output, which is the correct answer for their $\text{LCA}$.
 
 **d.** The time complexity of lines 1 and 2 are just constant. Then, for each child, we have a call to the same procedure, a $\text{UNION}$ operation which only takes constant time, and a $\text{FIND-SET}$ operation which can take at most amortized inverse Ackerman's time. Since we check each and every thing that is adjacent to $u$ for being black, we are only checking each pair in $P$ at most twice in lines 8-10, among all the runs of $\text{LCA}$. This means that the total runtime is $O(|T|\alpha(|T|) + |P|)$.
-
-<!-- hotfix: KaTeX -->
-<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>

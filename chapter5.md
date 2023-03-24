@@ -1,3 +1,8 @@
+<!-- hotfix: KaTeX -->
+<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>
+
 <h1 style="text-align: center;">5 Probabilistic Analysis and Randomized Algorithms</h1>
 
 # 5.1 The hiring problem
@@ -454,8 +459,6 @@ $$
 $$
 
 **b.** For this choice of $n_i$ , we have that at each increment operation, the probability that we change the value of the counter is $\frac{1}{100}$. Since this is a constant with respect to the current value of the counter $i$, we can view the final result as a binomial distribution with a $p$ value of $0.01$. Since  the variance of a binomial distribution is $np(1 − p)$, and we have that each success is worth $100$ instead, the variance is going to be equal to $0.99n$.
-
-
 # Problem 5-2 Searching an unsorted array
 
 > The problem examines three algorithms for searching for a value $x$ in an unsorted array $A$ consisting for $n$ elements.
@@ -524,8 +527,3 @@ $$
 **h.** It's the same as $\text{DETERMINISTIC-SEARCH}$, only we replace "average-case" with "expected".
 
 **i.** Definitelly $\text{DETERMINISTIC-SEARCH}$. $\text{SCRAMBLE-SEARCH}$ gives better expected results, but for the cost of randomly permuting the array, which is a linear operation. In the same time we could have scanned the full array and reported a result.
-
-<!-- hotfix: KaTeX -->
-<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>

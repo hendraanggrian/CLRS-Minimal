@@ -1,3 +1,8 @@
+<!-- hotfix: KaTeX -->
+<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>
+
 <h1 style="text-align: center;">34 NP-Completeness</h1>
 
 # 34.1 Polynomial time
@@ -267,8 +272,6 @@ This isn't a polynomial-time algorithm. Recall that the algorithm from Exercise 
 > **d.** Give an efficient algorithm to solve the independent-set problem when $G$ is bipartite. Analyze the running time, and prove that your algorithm works correctly. ($\text{Hint:}$ Use the results of Section 26.3.)
 
 (Omit!)
-
-
 # Problem 34-2 Bonnie and Clyde
 
 > Bonnie and Clyde have just robbed a bank. They have a bag of money and want to divide it up. For each of the following scenarios, either give a polynomial-time algorithm, or prove that the problem is $\text{NP-complete}$. The input in each case is a list of the $n$ items in the bag, along with the value of each.
@@ -282,8 +285,6 @@ This isn't a polynomial-time algorithm. Recall that the algorithm from Exercise 
 > **d.** The bag contains $n$ checks as in part (c), but this time Bonnie and Clyde are willing to accept a split in which the difference is no larger than $100$ dollars.
 
 (Omit!)
-
-
 # Problem 34-3 Graph coloring
 
 > Mapmakers try to use as few colors as possible when coloring countries on a map, as long as no two countries that share a border have the same color. We can model this problem with an undirected graph $G = (V, E)$ in which each vertex represents a country and vertices whose respective countries share a border are adjacent. Then, a **_$k$-coloring_** is a function $c: V \to \\{1, 2, \dots, k \\}$ such that $c(u) \ne c(v)$ for every edge $(u, v) \in E$. In other words, the numbers $1, 2, \dots, k$ represent the $k$ colors, and adjacent vertices must have different colors. The **_graph-coloring problem_** is to determine the minimum number of colors needed to color a given graph.
@@ -305,8 +306,6 @@ This isn't a polynomial-time algorithm. Recall that the algorithm from Exercise 
 > **f.** Complete the proof that $\text{3-COLOR}$ is $\text{NP-complete}$.
 
 (Omit!)
-
-
 # Problem 34-4 Scheduling with profits and deadlines
 
 > Suppose that we have one machine and a set of $n$ tasks $a_1, a_2, \dots, a_n$, each of which requires time on the machine. Each task $a_j$ requires $t_j$ time units on the machine (its processing time), yields a profit of $p_j$, and has a deadline $d_j$. The machine can process only one task at a time, and task $a_j$ must run without interruption for $t_j$ consecutive time units. If we complete task $a_j$ by its deadline $d_j$, we receive a profit $p_j$, but if we complete it after its deadline, we receive no profit. As an optimization problem, we are given the processing times, profits, and deadlines for a set of $n$ tasks, and we wish to find a schedule that completes all the tasks and returns the greatest amount of profit. The processing times, profits, and deadlines are all nonnegative numbers.
@@ -320,8 +319,3 @@ This isn't a polynomial-time algorithm. Recall that the algorithm from Exercise 
 > **d.** Give a polynomial-time algorithm for the optimization problem, assuming that all processing times are integers from $1$ to $n$.
 
 (Omit!)
-
-<!-- hotfix: KaTeX -->
-<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>

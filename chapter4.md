@@ -1,3 +1,8 @@
+<!-- hotfix: KaTeX -->
+<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>
+
 <h1 style="text-align: center;">4 Divide-and-Conquer</h1>
 
 # 4.1 The maximum-subarray problem
@@ -1016,8 +1021,6 @@ T(n) & = \sum_{j = 1}^{j = n / 2} (2j + d)^2 \\\\
      & = \Theta(n^3).
 \end{aligned}
 $$
-
-
 # Problem 4-2 Parameter-passing costs
 
 > Throughout this book, we assume that parameter passing during procedure calls takes constant time, even if an $N$-element array is being passed. This assumption is valid in most systems because a pointer to the array is passed, not the array itself. This problem examines the implications of three parameter-passing strategies:
@@ -1074,8 +1077,6 @@ $$
          & = \Theta(n\lg n).
     \end{aligned}
     $$
-
-
 # Problem 4-3 More recurrence examples
 
 > Give asymptotic upper and lower bounds for $T(n)$ in each of the following recurrences. Assume that $T(n)$ is constant for sufficiently small $n$. Make your bounds as tight as possible, and justify your answers.
@@ -1196,8 +1197,6 @@ T(n) & = n^{1 - \frac{1}{2^i}}T(2) + n + n\sum_{j = 1}^i \\\\
      & = \Theta(n\lg\lg n).
 \end{aligned}
 $$
-
-
 # Problem 4-4 Fibonacci numbers
 
 > This problem develops properties of the Fibonacci numbers, which are defined by recurrence $\text{(3.22)}$. We shall use the technique of generating functions to solve the Fibonacci recurrence. Define the **_generating function_** (or **_formal power series_**) $\mathcal F$ as
@@ -1283,8 +1282,6 @@ $$
 $$F_i = \frac{\phi^i - \hat{\phi}^i}{\sqrt 5} = \frac{\phi^i}{\sqrt 5} - \frac{\hat{\phi}^i}{\sqrt 5},$$
 
 For $i = 1$, $\phi / \sqrt 5 = (\sqrt 5 + 5) / 10 > 0.5$. For $i > 2$, $|\hat{\phi}^i| < 0.5$.
-
-
 # Problem 4-5 Chip testing
 
 > Professor Diogenes has $n$ supposedly identical integrated-circuit chips that in principle are capable of testing each other. The professor's test jig accommodates two chips at a time. When the jig is loaded, each chip tests the other and reports whether it is good or bad. A good chip always reports accurately whether the other chip is good or bad, but the professor cannot trust the answer of a bad chip. Thus, the four possible outcomes of a test are as follows:
@@ -1346,8 +1343,6 @@ $$T(n) \le T(\lceil n / 2 \rceil) + \lfloor n / 2 \rfloor.$$
 By the master theorem, we have $T(n) = O(n)$. After finding a good chip, we can identify all good chips with that good chip we just found in $n - 1$ tests, so the total number of tests is
 
 $$O(n) + n - 1 = \Theta(n).$$
-
-
 # Problem 4-6 Monge arrays
 
 > An $m \times n$ array $A$ of real numbers is a **Monge array** if for all $i$, $j$, $k$, and $l$ such that $1 \le i < k \le m$ and $1 \le j < l \le n$, we have
@@ -1491,8 +1486,3 @@ T(m) & = T(m / 2) + cn + dm \\\\
      & = O(n\lg m + m).
 \end{aligned}
 $$
-
-<!-- hotfix: KaTeX -->
-<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>

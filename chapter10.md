@@ -1,3 +1,8 @@
+<!-- hotfix: KaTeX -->
+<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>
+
 <h1 style="text-align: center;">10 Elementary Data Structures</h1>
 
 # 10.1 Stacks and queues
@@ -638,8 +643,6 @@ $$
 \hline
 \end{array}
 $$
-
-
 # Problem 10-2 Mergeable heaps using linked lists
 
 > A **_mergeable heap_** supports the following operations: $\text{MAKE-HEAP}$ (which creates an empty mergeable heap), $\text{INSERT}$, $\text{MINIMUM}$, $\text{EXTRACT-MIN}$, and $\text{UNION}$. Show how to implement mergeable heaps using linked lists in each of the following cases. Try to make each operation as efficient as possible. Analyze the running time of each operation in terms of the size of the dynamic set(s) being operated on.
@@ -709,8 +712,6 @@ UNION(A, B)
 ```
 
 **c.** Since the algorithms in part (b) didn't depend on the elements being distinct, we can use the same ones.
-
-
 # Problem 10-3 Searching a sorted compact list
 
 > Exercise 10.3-4 asked how we might maintain an $n$-element list compactly in the first $n$ positions of an array. We shall assume that all keys are distinct and that the compact list is also sorted, that is, $key[i] < key[next[i]]$ for all $i = 1, 2, \ldots, n$ such that $next[i] \ne \text{NIL}$. We will also assume that we have a variable $L$ that contains the index of the first element on the list. Under these assumptions, you will show that we can use the following randomized algorithm to search the list in $O(\sqrt n)$ expected time.
@@ -819,8 +820,3 @@ $$
 **g.** Since we have that for any number of iterations $t$ that the first algorithm takes to find its answer, the second algorithm will return it in time $O(t + n / t)$. In particular, if we just have that $t = \sqrt n$. The second algorithm takes time only $O(\sqrt n)$. This means that tihe first list search algorithm is $O(\sqrt n)$ as well.
 
 **h.** If we don't have distinct key values, then, we may randomly select an element that is further along than we had been before, but not jump to it because it has the same key as what we were currently at. The analysis will break when we try to bound the probability that $X_t \ge i$.
-
-<!-- hotfix: KaTeX -->
-<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>

@@ -1,3 +1,8 @@
+<!-- hotfix: KaTeX -->
+<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>
+
 <h1 style="text-align: center;">18 B-Trees</h1>
 
 # 18.1 Definition of B-trees
@@ -247,8 +252,6 @@ The cases where $k$ is the last key in a node have been omitted because the pseu
 **c.** If we make a sequence of pushes until it just spills over onto the second page, then alternate popping and pulling many times, the asymptotic number of disk accesses and CPU time is of the same order as in part a. This is because when we are doing that alternating of pops and pushes, each one triggers a disk access.
 
 **d.** We define the potential of the stack to be the absolute value of the difference between the current size of the stack and the most recently passed multiple of $m$. This potential function means that the initial stack which has size $0$, is also a multiple of $m$, so the potential is zero. Also, as we do a stack operation we either increase or decrease the potential by one. For us to have to load a new page from disk and write an old one to disk, we would need to be at least $m$ positions away from the most recently visited multiple of $m$, because we would have had to just cross a page boundary. This cost of loading and storing a page takes (real) cpu time of $\Theta(m)$. However, we just had a drop in the potential function of order $\Theta(m)$. So, the amortized cost of this operation is $O(1)$.
-
-
 # Problem 18-2 Joining and splitting 2-3-4 trees
 
 > The **_join_** operation takes two dynamic sets $S'$ and $S''$ and an element $x$ such that for any $x' \in S'$ and $x'' \in S''$, we have $x'.key < x.key < x''.key$. It returns a set $S = S' \cup \\{x\\} \cup S''$. The **_split_** operation is like an "inverse" join: given a dynamic set $S$ and an element $x \in S$, it creates a set $S'$ that consists of all elements in set $S$ and an element $x \in S$, it creates a set $S'$ that consists of all elements in $S - \\{x\\}$ whose keys are less than $x.key$ and a set $S''$ that consists of all elements in $S - \\{x\\}$ whose keys are greater than $x.key$. In this problem, we investigate how to implement these operations on 2-3-4 trees. We assume for convenience that elements consist only of keys and that all key values are distinct.
@@ -288,8 +291,3 @@ $$T'.height - T_1.height.$$
 Since the heights are nondecreasing of successive tree that are joined, we get a telescoping sum of heights. The first tree has height $h$, where $h$ is the height of $T$, and the last tree has height $0$. Thus, the runtime is
 
 $$O(2(h + h)) = O(\lg n).$$
-
-<!-- hotfix: KaTeX -->
-<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>

@@ -1,3 +1,8 @@
+<!-- hotfix: KaTeX -->
+<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>
+
 <h1 style="text-align: center;">27 Multithreaded Algorithms</h1>
 
 # 27.1 The basics of dynamic multithreading
@@ -322,8 +327,6 @@ To do this we pull out our freshman calculus hat and take a derivative, we have
 $$0 = 1 − \frac{n}{g^2}.$$
 
 To solve this, we set $g = \sqrt n$. This minimizes the quantity and makes the span $O(n / g + g) = O(\sqrt n)$. Resulting in a parallelism of $O(\sqrt n)$.
-
-
 # Problem 27-2 Saving temporary space in matrix multiplication
 
 > The $\text{P-MATRIX-MULTIPLY-RECURSIVE}$ procedure has the disadvantage that it must allocate a temporary matrix $T$ of size $n \times n$, which can adversely affect the constants hidden by the $\Theta$-notation. The $\text{P-MATRIX-MULTIPLY-RECURSIVE}$ procedure does have high parallelism, however. For example, ignoring the constants in the $\Theta$-notation, the parallelism for multiplying $1000 \times 1000$ matrices comes to approximately $1000^3 / 10^2 = 10^7$, since $\lg 1000 \approx 10$. Most parallel computers have far fewer than 10 million processors.
@@ -335,8 +338,6 @@ To solve this, we set $g = \sqrt n$. This minimizes the quantity and makes the s
 > **c.** Analyze the parallelism of your implementation. Ignoring the constants in the $\Theta$-notation, estimate the parallelism on $1000 \times 1000$ matrices. Compare with the parallelism of $\text{P-MATRIX-MULTIPLY-RECURSIVE}$.
 
 (Removed)
-
-
 # Problem 27-3 Multithreaded matrix algorithms
 
 > **a.** Parallelize the $\text{LU-DECOMPOSITION}$ procedure on page 821 by giving pseudocode for a multithreaded version of this algorithm. Make your implementation as parallel as possible, and analyze its work, span, and parallelism.
@@ -362,8 +363,6 @@ However, the two inversions that we need to do are independent, and the span of 
 $$I_\infty(n) \le I_\infty(n / 2) + O(\lg n).$$
 
 This recurrence has the solution $I_\infty(n) \in \Theta(\lg^2 n)$ by exercise 4.6-2. Therefore, the span of the inversion algorithm obtained by looking at the procedure detailed on page 830. This makes the parallelization of it equal to $\Theta(M(n) / \lg^2 n)$ where $M(n)$ is the time to compute matrix products.
-
-
 # Problem 27-4 Multithreading reductions and prefix computations
 
 > A **_$\otimes$-reduction_** of an array $x[1 \ldots n]$, where $\otimes$ is an associative operator, is the value
@@ -489,8 +488,6 @@ This recurrence has the solution $I_\infty(n) \in \Theta(\lg^2 n)$ by exercise 4
 > **e.** Analyze the work, span, and parallelism of $\text{P-SCAN-3}$.
 
 (Removed)
-
-
 # Problem 27-5 Multithreading a simple stencil calculation
 
 > Computational science is replete with algorithms that require the entries of an array to be filled in with values that depend on the values of certain already computed neighboring entries, along with other information that does not change over the course of the computation. The pattern of neighboring entries does not change during the computation and is called a **_stencil_**. For example, Section 15.4 presents a stencil algorithm to compute a longest common subsequence, where the value in entry $c[i, j]$ depends only on the values in $c[i - 1, j]$, $c[i, j - 1]$, and $c[i - 1, j - 1]$, as well as the elements $x_i$ and $y_j$ within the two sequences given as inputs. The input sequences are fixed, but the algorithm fills in the two-dimensional array $c$ so that it computes entry $c[i, j]$ after computing all three entries $c[i - 1, j]$, $c[i, j - 1]$, and $c[i - 1, j - 1]$.
@@ -519,8 +516,6 @@ This recurrence has the solution $I_\infty(n) \in \Theta(\lg^2 n)$ by exercise 4
 > **d.** Give pseudocode for a multithreaded algorithm for this simple stencil calculation that achieves $\Theta(n\lg n)$ parallelism. Argue using notions of work and span that the problem, in fact, has $\Theta(n)$ inherent parallelism. As it turns out, the divide-and-conquer nature of our multithreaded pseudocode does not let us achieve this maximal parallelism.
 
 (Removed)
-
-
 # Problem 27-6 Randomized multithreaded algorithms
 
 > Just as with ordinary serial algorithms, we sometimes want to implement randomized multithreaded algorithms. This problem explores how to adapt the various performance measures in order to handle the expected behavior of such algorithms. It also asks you to design and analyze a multithreaded algorithm for randomized quicksort.
@@ -573,8 +568,3 @@ $$
 \text E[T_1] / \text E[T_\infty] & = O(n).
 \end{aligned}
 $$
-
-<!-- hotfix: KaTeX -->
-<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>

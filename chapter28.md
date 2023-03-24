@@ -1,3 +1,8 @@
+<!-- hotfix: KaTeX -->
+<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>
+
 <h1 style="text-align: center;">28 Matrix Operations</h1>
 
 # 28.1 Solving systems of linear equations
@@ -701,8 +706,6 @@ Since for a Tridiagonal matrix, it will only ever have finitely many nonzero ent
 Since the asymptotics of performing the LU decomposition on a positive definite tridiagonal matrix is $O(n)$, and this decomposition can be used to solve the equation in time $O(n)$, the total time for solving it with this method is $O(n)$. However, to simply record the inverse of the tridiagonal matrix would take time $O(n^2)$ since there are that many entries, so, any method based on computing the inverse of the matrix would take time $\Omega(n^2)$ which is clearly slower than the previous method.
 
 **e.** The runtime of our LUP decomposition algorithm drops to being $O(n)$ because we know there are only ever a constant number of nonzero entries in each row and column, as before. Once we have an LUP decomposition, we also know that that decomposition have both $L$ and $U$ having only a constant number of non-zero entries in each row and column. This means that when we perform the forward and backward substitution, we only spend a constant amount of time per entry in $x$, and so, only takes $O(n)$ time.
-
-
 # Problem 28-2 Splines
 
 > A pratical method for interpolating a set of points with a curve is to use **cubic splines**. We are given a set $\\{(x_i, y_i): i = 0, 1, \ldots, n\\}$ of $n + 1$ point-value pairs, where $x_0 < x_1 < \cdots < x_n$. We wish to fit a piecewise-cubic curve (spline) $f(x)$ to the points. That is, the curve $f(x)$ is made up of $n$ cubic polynomials $f_i(x) = a_i + b_ix + c_ix^2 + d_ix^3$ for $i = 0, 1, \ldots, n - 1$, where if $x$ falls in the range $x_i \le x \le x_{i + 1}$, then the value of the curve is given by $f(x) = f_i(x - x_i)$. The points $x_i$ at which the cubic polynomials are "pasted" together are called **knots**. For simplicity, we shall assume that $x_i = i$ for $i = 0, 1, \ldots, n$.
@@ -795,8 +798,3 @@ $$
 **e.** Since the matrix is symmetric and tridiagonal, Problem 28-1 (e) tells us that we can solve the equation in $O(n)$ time by performing an LUP decomposition. By part (a), once we know each $D_i$ we can compute each $f_i$ in $O(n)$ time.
 
 **f.** For the general case of solving the nonuniform natural cubic spline problem, we require that $f(x_{i + 1}) = f_i(x_{i + 1} − x_i) = y_{i + 1}$, $f'(x_{i + 1}) = f_i'(x_{i + 1} - x_i) = f_{i + 1}'(0)$ and $f''(x_{i + 1}) = f_i''(x_{i + 1} - x_i) = f_{i + 1}''(0)$. We can still solve for each of $a_i$, $b_i$, $c_i$ and $d_i$ in terms of $y_i$, $y_{i + 1}$, $D_i$ and $D_{i + 1}$, so we still get a tridiagonal matrix equation. The solution will be slightly messier, but ultimately it is solved just like the simpler case, in $O(n)$ time.
-
-<!-- hotfix: KaTeX -->
-<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>

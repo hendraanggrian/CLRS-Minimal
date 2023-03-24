@@ -50,17 +50,22 @@ PDF documents of [Solutions to **Introduction to Algorithms** _Third Edition_](h
 ## Specification
 
 Each **topic** (such as *1 The Role of Algorithms in Computing*) are exported
-with [markdown-pdf](https://marketplace.visualstudio.com/items?itemName=yzane.markdown-pdf)
-using user settings as follow:
+using [Markdown PDF Styles](https://github.com/hendraanggrian/markdown-pdf-styles/) using settings:
 
 ```json
 {
-  "markdown-pdf.format": "Letter"
+  "markdown-pdf.size": "Letter",
+  "markdown-pdf.styles": [
+    ".../markdown-pdf-styles/styles/font-sans",
+    ".../markdown-pdf-styles/styles/text-normal",
+  ],
+  "markdown-pdf.headerTemplate": "<div style='font-size: 9px; margin-left: 1cm; margin-right: 1cm;'> <span>$URL</span> </div>",
+  "markdown-pdf.footerTemplate": "<div style='font-size: 9px; margin-left: 1cm;'> <span>$TITLE</span> </div> <div style='font-size: 9px; margin-left: auto; margin-right: 1cm;'> <span class='pageNumber'></span> / <span class='totalPages'></span> </div>"
 }
 ```
 
 The **sections** (such as *I Foundations*) are all the topics combined in 3x2
-landscape layout, particularly useful as cheatsheet in open-book exams.
+landscape layout, particularly useful as cheatsheet.
 
 ## Building
 

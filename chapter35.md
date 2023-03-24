@@ -1,3 +1,8 @@
+<!-- hotfix: KaTeX -->
+<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>
+
 <h1 style="text-align: center;">35 Approximation Algorithms</h1>
 
 # 35.1 The vertex-cover problem
@@ -244,8 +249,6 @@ Hence, $\Ex\left[\frac{\opt}{c}\right] \le \frac{|E|}{1 / 2|E|} = 2$, and so $\t
 > **f.** Give an efficient implementation of the first-fit heuristic, and analyze its running time.
 
 (Omit!)
-
-
 # Problem 35-2 Approximating the size of a maximum clique
 
 > Let $G = (V, E)$ be an undirected graph. For any $k \ge 1$, define $G^{(k)}$ to be the undirected graph $(V^{(k)}, E^{(k)})$, where $V^{(k)}$ is the set of all ordered $k$-tuples of vertices from $V$ and $E^{(k)}$ is defined so that $(v_1, v_2, \dots, v_k)$ is adjacent to $(w_1, w_2, \dots, w_k)$ if and only if for $i = 1, 2, \dots, k$, either vertex $v_i$ is adjacent to $w_i$ in $G$, or else $v_i = w_i$.
@@ -255,8 +258,6 @@ Hence, $\Ex\left[\frac{\opt}{c}\right] \le \frac{|E|}{1 / 2|E|} = 2$, and so $\t
 > **b.** Argue that if there is an approximation algorithm that has a constant approximation ratio for finding a maximum-size clique, then there is a polynomial-time approximation scheme for the problem.
 
 (Omit!)
-
-
 # Problem 35-3 Weighted set-covering problem
 
 > Suppose that we generalize the set-covering problem so that each set $S_i$ in the family $\mathcal F$ has an associated weight $w_i$ and the weight of a cover $\mathcal C$ is $\sum_{S_i \in \mathcal C} w_i$. We wish to determine a minimum-weight cover. (Section 35.3 handles the case in which $w_i = 1$ for all $i$.)
@@ -264,8 +265,6 @@ Hence, $\Ex\left[\frac{\opt}{c}\right] \le \frac{|E|}{1 / 2|E|} = 2$, and so $\t
 > Show how to generalize the greedy set-covering heuristic in a natural manner to provide an approximate solution for any instance of the weighted set-covering problem. Show that your heuristic has an approximation ratio of $H(d)$, where $d$ is the maximum size of any set $S_i$.
 
 (Omit!)
-
-
 # Problem 35-4 Maximum matching
 
 > Recall that for an undirected graph $G$, a matching is a set of edges such that no two edges in the set are incident on the same vertex. In Section 26.3, we saw how to find a maximum matching in a bipartite graph. In this problem, we will look at matchings in undirected graphs in general (i.e., the graphs are not required to be bipartite).
@@ -289,8 +288,6 @@ Hence, $\Ex\left[\frac{\opt}{c}\right] \le \frac{|E|}{1 / 2|E|} = 2$, and so $\t
 > **f.** Using parts (c) and (e), prove that the greedy algorithm in part (b) is a $2$-approximation algorithm for maximum matching.
 
 (Omit!)
-
-
 # Problem 35-5 Parallel machine scheduling
 
 > In the **_parallel-machine-scheduling problem_**, we are given $n$ jobs, $J_1, J_2, \dots, J_n$, where each job $J_k$ has an associated nonnegative processing time of $p_k$. We are also given $m$ identical machines, $M_1, M_2, \dots, M_m$. Any job can run on any machine. A **_schedule_** specifies, for each job $J_k$, the machine on which it runs and the time period during which it runs. Each job $J_k$ must run on some machine $M_i$ for $p_k$ consecutive time units, and during that time period no other job may run on $M_i$. Let $C_k$ denote the **_completion time_** of job $J_k$, that is, the time at which job $J_k$ completes processing. Given a schedule, we define $C_{\max} = \max_{1 \le j \le n} C_j$ to be the **_makespan_** of the schedule. The goal is to find a schedule whose makespan is minimum.
@@ -318,8 +315,6 @@ Hence, $\Ex\left[\frac{\opt}{c}\right] \le \frac{|E|}{1 / 2|E|} = 2$, and so $\t
 > Conclude that this algorithm is a polynomial-time $2$-approximation algorithm.
 
 (Omit!)
-
-
 # Problem 35-6 Approximating a maximum spanning tree
 
 > Let $G = (V, E)$ be an undirected graph with distinct edge weights $w(u, v)$ on each edge $(u, v) \in E$. For each vertex $v \in V$, let $\max(v) = \max_{(u, v) \in E} \\{w(u, v)\\}$ be the maximum-weight edge incident on that vertex. Let $S_G = \\{\max(v): v \in V\\}$ be the set of maximum-weight edges incident on each vertex, and let $T_G$ be the maximum-weight spanning tree of $G$, that is, the spanning tree of maximum total weight. For any subset of edges $E' \subseteq E$, define $w(E') = \sum_{(u, v) \in E'} w(u, v)$.
@@ -335,8 +330,6 @@ Hence, $\Ex\left[\frac{\opt}{c}\right] \le \frac{|E|}{1 / 2|E|} = 2$, and so $\t
 > **e.** Give an $O(V + E)$-time algorithm to compute a $2$-approximation to the maximum spanning tree.
 
 (Omit!)
-
-
 # Problem 35-7 An approximation algorithm for the 0-1 knapsack problem
 
 > Recall the knapsack problem from Section 16.2. There are $n$ items, where the $i$th item is worth $v_i$ dollars and weighs $w_i$ pounds. We are also given a knapsack that can hold at most $W$ pounds. Here, we add the further assumptions that each weight $w_i$ is at most $W$ and that the items are indexed in monotonically decreasing order of their values: $v_1 \ge v_2 \ge \cdots \ge v_n$.
@@ -356,8 +349,3 @@ Hence, $\Ex\left[\frac{\opt}{c}\right] \le \frac{|E|}{1 / 2|E|} = 2$, and so $\t
 > **e.** Give a polynomial-time algorithm that returns a maximum-value solution from the set $\\{R_1, R_2, \dots, R_n\\}$, and prove that your algorithm is a polynomial-time $2$-approximation algorithm for the 0-1 knapsack problem.
 
 (Omit!)
-
-<!-- hotfix: KaTeX -->
-<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>

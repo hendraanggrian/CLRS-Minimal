@@ -1,3 +1,8 @@
+<!-- hotfix: KaTeX -->
+<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>
+
 <h1 style="text-align: center;">15 Dynamic Programming</h1>
 
 # 15.1 Rod cutting
@@ -501,8 +506,6 @@ $$\text{LONGEST}(G, s, t) = 1 + \max_{s∼s'} \text\\{LONGEST(G|_{V\backslash\\{
 with the base case that if $s = t$ then we have a length of $0$.
 
 A naive bound would be to say that since the graph we are considering is a subset of the vertices, and the other two arguments to the substructure are distinguished vertices, then, the runtime will be $O(|V|^2 2^{|V|})$. We can see that we will actually have to consider this many possible subproblems by taking $|G|$ to be the complete graph on $|V|$ vertices.
-
-
 # Problem 15-10 Planning an investment strategy
 
 > Your knowledge of algorithms helps you obtain an exciting job with the Acme Computer Company, along with a $\$10,000$ signing bonus. You decide to invest this money with the goal of maximizing your return at the end of 10 years. You decide to use the Amalgamated Investment Company to manage your investments. Amalgamated Investments requires you to observe the following rules. It offers $n$ different investments, numbered $1$ through $n$. In each year $j$, investment $i$ provides a return rate of $r_{ij}$ . In other words, if you invest $d$ dollars in investment $i$ in year $j$, then at the end of year $j$ , you have $dr_{ij}$ dollars. The return rates are guaranteed, that is, you are given all the return rates for the next 10 years for each investment. You make investment decisions only once per year. At the end of each year, you can leave the money made in the previous year in the same investments, or you can shift money to other investments, by either shifting money between existing investments or moving money to a new investement. If you do not move your money between two consecutive years, you pay a fee of $f_1$ dollars, whereas if you switch your money, you pay a fee of $f_2$ dollars, where $f_2 > f_1$.
@@ -539,8 +542,6 @@ INVEST(d, n)
 ```
 
 **d.** The previous investment strategy was independent of the amount of money you started with. When there is a cap on the amount you can invest, the amount you have to invest in the next year becomes relevant. If we know the year-one-strategy of an optimal investment, and we know that we need to move money after the first year, we're left with the problem of investing a different initial amount of money, so we'd have to solve a subproblem for every possible initial amount of money. Since there is no bound on the returns, there's also no bound on the number of subproblems we need to solve.
-
-
 # Problem 15-11 Inventory planning
 
 > The Rinky Dink Company makes machines that resurface ice rinks. The demand for such products varies from month to month, and so the company needs to develop a strategy to plan its manufacturing given the fluctuating, but predictable, demand. The company wishes to design a plan for the next $n$ months. For each month $i$, the company knows the demand $d_i$, that is, the number of machines that it will sell. Let $D = \sum_{i = 1}^n d_i$ be the total demand over the next $n$ months. The company keeps a full-time staff who provide labor to manufacture up to $m$ machines per month. If the company needs to make more than $m$ machines in a given month, it can hire additional, part-time labor, at a cost that works out to $c$ dollars per machine. Furthermore, if, at the end of a month, the company is holding any unsold machines, it must pay inventory costs. The cost for holding $j$ machines is given as a function $h(j)$ for $j = 1, 2, \ldots, D$, where $h(j) \ge 0$ for $1 \le j \le D$ and $h(j) \le h(j + 1)$ for $1 \le j \le D - 1$.
@@ -548,8 +549,6 @@ INVEST(d, n)
 > Give an algorithm that calculates a plan for the company that minimizes its costs while fulfilling all the demand. The running time should be polyomial in $n$ and $D$.
 
 Our subproblems will be indexed by and integer $i \in [n]$ and another integer $j \in [D]$. $i$ will indicate how many months have passed, that is, we will restrict ourselves to only caring about $(d_i, \dots, d_n)$. $j$ will indicate how many machines we have in stock initially. Then, the recurrence we will use will try producing all possible numbers of machines from $1$ to $[D]$. Since the index space has size $O(nD)$ and we are only running through and taking the minimum cost from $D$ many options when computing a particular subproblem, the total runtime will be $O(nD^2)$.
-
-
 # Problem 15-12 Signing free-agent baseball players
 
 > Suppose that you are the general manager for a major-league baseball team. During the off-season, you need to sign some free-agent players for your team. The team owner has given you a budget of $\$X$ to spend on free agents. You are allowed to spend less than $\$X$ altogether, but the owner will fire you if you spend any more than $\$X$.
@@ -602,8 +601,6 @@ BASEBALL(N, X, P)
         i = i - 1
     print("The total cost is", C)
 ```
-
-
 # Problem 15-2 Longest palindrome subsequence
 
 > A **_palindrome_** is a nonempty string over some alphabet that reads the same forward and backward. Examples of palindromes are all strings of length $1$, $\text{civic}$, $\text{racecar}$, and $\text{aibohphobia}$ (fear of palindromes).
@@ -611,8 +608,6 @@ BASEBALL(N, X, P)
 > Give an efficient algorithm to find the longest palindrome that is a subsequence of a given input string. For example, given the input $\text{character}$, your algorithm should return $\text{carac}$. What is the running time of your algorithm?
 
 Let $A[1..n]$ denote the array which contains the given word. First note that for a palindrome to be a subsequence we must be able to divide the input word at some position $i$, and then solve the longest common subsequence problem on $A[1..i]$ and $A[i + 1..n]$, possibly adding in an extra letter to account for palindromes with a central letter. Since there are $n$ places at which we could split the input word and the $\text{LCS}$ problem takes time $O(n^2)$, we can solve the palindrome problem in time $O(n^3)$.
-
-
 # Problem 15-3 Bitonic euclidean
 
 > In the **_euclidean traveling-salesman problem_**, we are given a set of $n$ points in the plane, and we wish to find the shortest closed tour that connects all n points. Figure 15.11(a) shows the solution to a $7$-point problem. The general problem is NP-hard, and its solution is therefore believed to require more than polynomial time (see Chapter 34).
@@ -624,8 +619,6 @@ Let $A[1..n]$ denote the array which contains the given word. First note that fo
 First sort all the points based on their $x$ coordinate. To index our subproblem, we will give the rightmost point for both the path going to the left and the path going to the right. Then, we have that the desired result will be the subproblem indexed by $v$, where $v$ is the rightmost point.
 
 Suppose by symmetry that we are further along on the left-going path, that the leftmost path is going to the $i$th one and the right going path is going until the $j$th one. Then, if we have that $i > j + 1$, then we have that the cost must be the distance from the $i − 1$st point to the ith plus the solution to the subproblem obtained where we replace $i$ with $i − 1$. There can be at most $O(n^2)$ of these subproblem, but solving them only requires considering a constant number of cases. The other possibility for a subproblem is that $j \le i \le j + 1$. In this case, we consider for every $k$ from $1$ to $j$ the subproblem where we replace $i$ with $k$ plus the cost from $k$th point to the $i$th point and take the minimum over all of them. This case requires considering $O(n)$ things, but there are only $O(n)$ such cases. So, the final runtime is $O(n^2)$.
-
-
 # Problem 15-4 Printing neatly
 
 > Consider the problem of neatly printing a paragraph with a monospaced font (all characters having the same width) on a printer. The input text is a sequence of $n$ words of lengths $l_1, l_2, \ldots, l_n$, measured in characters. We want to print this paragraph neatly on a number of lines that hold a maximum of $M$ characters each. Our criterion of "neatness" is as follows. If a given line contains words $i$ through $j$, where $i \le j$ , and we leave exactly one space between words, the number of extra space characters at the end of the line is $M - j + i - \sum_{k = i}^j l_k$, which must be nonnegative so that the words fit on the line. We wish to minimize the sum, over all lines except the last, of the cubes of the numbers of extra space characters at the ends of lines. Give a dynamic-programming algorithm to print a paragraph of $n$ words neatly on a printer. Analyze the running time and space requirements of your algorithm.
@@ -646,8 +639,6 @@ PRINT-NEATLY(n)
                 P[k] = k + j
         C[k] = q
 ```
-
-
 # Problem 15-5 Edit distance
 
 > In order to transform one source string of text $x[1..m]$ to a target string $y[1..n]$, we can perform various transformation operations. Our goal is, given $x$ and $y$, to produce a series of transformations that change $x$ to $y$. We use an array $z$—assumed to be large enough to hold all the characters it will need—to hold the intermediate results. Initially, $z$ is empty, and at termination, we should have $z[j] = y[j]$ for $j = 1, 2, \ldots, n$. We maintain current indices $i$ into $x$ and $j$ into $z$, and the operations are allowed to alter $z$ and these indices. Initially, $i = j = 1$. We are required to examine every character in $x$ during the transformation, which means that at the end of the sequence of transformation operations, we must have $i = m + 1$.
@@ -758,8 +749,6 @@ EDIT(x, y, i, j)
             o5 = cost(twiddle) + EDIT(x, y, i + 2, j + 2)
     return min_{i ∈ [5]}{o_i}
 ```
-
-
 # Problem 15-6 Planning a company party
 
 > Professor Stewart is consulting for the president of a corporation that is planning a company party. The company has a hierarchical structure; that is, the supervisor relation forms a tree rooted at the president. The personnel office has ranked each employee with a conviviality rating, which is a real number. In order to make the party fun for all attendees, the president does not want both an employee and his or her immediate supervisor to attend.
@@ -771,8 +760,6 @@ The problem exhibits optimal substructure in the following way: If the root $r$ 
 $$C[x] = \max(\sum_{y\text{ is a child of } x} C[y], x.conviv + \sum_{y\text{ is a grandchild of } x} C[y]).$$
 
 The runtime is $O(n)$ since each node appears in at most two of the sums (because each node has at most 1 parent and 1 grandparent) and each node is solved once.
-
-
 # Problem 15-7 Viterbi algorithm
 
 > We can use dynamic programming on a directed graph $G = (V, E)$ for speech recognition. Each edge $(u, v) \in E$ is labeled with a sound $\sigma(u, v)$ from a finite set $\Sigma$ of sounds. The labeled graph is a formal model of a person speaking a restricted language. Each path in the graph starting from a distinguished vertex $v_0 \in V$ corresponds to a possible sequence of sounds producted by the model. We define the label of a directed path to be the concatenation of the labels of the edges on that path.
@@ -816,8 +803,6 @@ PROB-VITERBI(G, s, v[0])
                 sols.prob = p(v[0], v[1]) * res.prob and sols.seq = v[0], res.seq
     return sols
 ```
-
-
 # Problem 15-8 Image compression by seam carving
 
 > We are given a color picture consisting of an $m \times n$ array $A[1..m, 1..n]$ of pixels, where each pixel specifies a triple of red, green, and blue (RGB) intensities. Suppose that we wish to compress this picture slightly. Specifically, we wish to remove one pixel from each of the $m$ rows, so that the whole picture becomes one pixel narrower. To avoid disturbing visual effects, however, we require that the pixels removed in two adjacent rows be in the same or adjacent columns; the pixels removed form a "seam" from the top row to the bottom row where successive pixels in the seam are adjacent vertically or diagonally.
@@ -864,8 +849,6 @@ SEAM(A)
             q = j
     print(S[m, q])
 ```
-
-
 # Problem 15-9 Breaking a string
 
 > A certain string-processing language allows a programmer to break a string into two pieces. Because this operation copies the string, it costs $n$ time units to break a string of $n$ characters into two pieces. Suppose a programmer wants to break a string into many pieces. The order in which the breaks occur can affect the total amount of time used. For example, suppose that the programmer wants to break a $20$-character string after characters $2$, $8$, and $10$ (numbering the characters in ascending order from the left-hand end, starting from $1$). If she programs the breaks to occur in left-to-right order, then the first break costs $20$ time units, the second break costs $18$ time units (breaking the string from characters $3$ to $20$ at character $8$), and the third break costs $12$ time units, totaling $50$ time units. If she programs the breaks to occur in right-to-left order, however, then the first break costs $20$ time units, the second break costs $10$ time units, and the third break costs $8$ time units, totaling $38$ time units. In yet another order, she could break first at $8$ (costing $20$), then break the left piece at $2$ (costing $8$), and finally the right piece at $10$ (costing $12$), for a total cost of $40$.
@@ -892,8 +875,3 @@ Sample call:
     S = 20
     CUT-STRING(L, 0, len(L), 0, s)
 ```
-
-<!-- hotfix: KaTeX -->
-<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>

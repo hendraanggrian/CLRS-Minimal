@@ -1,3 +1,8 @@
+<!-- hotfix: KaTeX -->
+<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>
+
 <h1 style="text-align: center;">3 Growth of Functions</h1>
 
 # 3.1 Asymptotic notation
@@ -437,8 +442,6 @@ which is the definition of $O(n^d)$.
 By chosing $b = -1$ we can prove the $\Omega(n^d)$ inequality and thus the $\Theta(n^d)$ inequality.
 
 It is very similar to prove the other inequalities.
-
-
 # Problem 3-2 Relative asymptotic growths
 
 > Indicate for each pair of expressions $(A, B)$ in the table below, whether $A$ is $O$, $o$, $\Omega$, $\omega$, or $\Theta$ of $B$. Assume that $k \ge 1$, $\epsilon > 0$, and $c > 1$ are constants. Your answer should be in the form of the table with "yes" or "no" written in each box.
@@ -455,8 +458,6 @@ n^{\lg c} & c^{\lg n}  & yes & no  &  yes   & no     & yes    \\\\
 \lg(n!)   & \lg(n^n)   & yes & no  &  yes   & no     & yes
 \end{array}
 $$
-
-
 # Problem 3-3 Ordering by asymptotic growth rates
 
 > **a.** Rank the following functions by order of growth; that is, find an arrangement $g_1, g_2, \ldots , g_{30}$ of the functions $g_1 = \Omega(g_2), g_2 = \Omega(g_3), \ldots, g_{29} = \Omega(g_{30})$. Partition your list into equivalence classes such that functions $f(n)$ and $g(n)$ are in the same class if and only if $f(n) = \Theta(g(n))$.
@@ -512,8 +513,6 @@ f(n) =
 $$
 
 for all functions $g_i(n)$ in part (a), $f(n)$ is neither $O(g_i(n))$ nor $\Omega(g_i(n))$.
-
-
 # Problem 3-4 Asymptotic notation properties
 
 > Let $f(n)$ and $g(n)$ by asymptotically positive functions. Prove or disprove each of the following conjectures.
@@ -578,8 +577,6 @@ We need to prove that
 $$\exists c_1, c_2, n_0: \forall n \ge n_0, 0 \le c_1f(n) \le f(n) + g(n) \le c_2f(n).$$
 
 Thus, if we pick $c_1 = 1$ and $c_2 = c + 1$, it holds.
-
-
 # Problem 3-5 Variations on $O$ and $\Omega$
 
 > Some authors define $\Omega$ in a slightly different way than we do; let's use ${\Omega}^{\infty}$ (read "omega infinity") for this alternative definition. We say that $f(n) = {\Omega}^{\infty}(g(n))$ if there exists a positive constant $c$ such that $f(n) \ge cg(n) \ge 0$ for infinitely many integers $n$.
@@ -647,8 +644,6 @@ $$
 $$
 
 For any two functions $f(n)$ and $g(n)$, we have $f(n) = \tilde\Theta(g(n))$ if and only if $f(n) = \tilde O(g(n))$ and $f(n) = \tilde\Omega(g(n))$.
-
-
 # Problem 3-6 Iterated functions
 
 > We can apply the iteration operator $^\*$ used in the $\lg^\*$ function to any monotonically increasing function $f(n)$ over the reals. For a given constant $c \in \mathbb R$, we define the iterated function ${f_c}^\*$ by ${f_c}^\*(n) = \min \\{i \ge 0 : f^{(i)}(n) \le c \\}$ which need not be well defined in all cases. In other words, the quantity ${f_c}^\*(n)$ is the number of iterated applications of the function $f$ required to reduce its argument down to $c$ or less.
@@ -669,8 +664,3 @@ n^{1 / 3} & 2 &  \Theta(\log_3{\lg n})      \\\\
 n / \lg n & 2 &  \omega(\lg\lg n), o(\lg n)
 \end{array}
 $$
-
-<!-- hotfix: KaTeX -->
-<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>

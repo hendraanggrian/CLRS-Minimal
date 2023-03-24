@@ -1,3 +1,8 @@
+<!-- hotfix: KaTeX -->
+<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>
+
 <h1 style="text-align: center;">19 Fibonacci Heaps</h1>
 
 # 19.1 Structure of Fibonacci heaps
@@ -123,8 +128,6 @@ $$\Phi(H') \le t(H) + x.degree + 2(m(H) - c + 2).$$
 $$\Theta(x.degree) = \Theta(\lg(n)),$$
 
 which is the same asyptotic time that was required for the original deletion method.
-
-
 # Problem 19-2 Binomial trees and binomial heaps
 
 > The **_binomial tree_** $B_k$ is an ordered tree (see Section B.5.2) defined recursively. As shown in Figure 19.6(a), the binomial tree $B_0$ consists of a single node. The binomial tree $B_k$ consists of two binomial trees $B_{k - 1}$ that are linked together so that the root of one is the leftmost child of the root of the other. Figure 19.6(b) shows the binomial trees $B_0$ through $B_4$.
@@ -174,8 +177,6 @@ which is the same asyptotic time that was required for the original deletion met
 **e.** $\text{INSERT}$ and $\text{UNION}$ will no longer have amortized $O(1)$ running time because $\text{CONSOLIDATE}$ has runtime $O(\lg n)$. Even if no nodes are consolidated, the runtime is dominated by the check that all degrees are distinct.
 
 Since calling $\text{UNION}$ on a heap and a single node is the same as insertion, it must also have runtime $O(\lg n)$. The other operations remain unchanged.
-
-
 # Problem 19-3 More Fibonacci-heap operations
 
 > We wish to augment a Fibonacci heap $H$ to support two new operations without changing the amortized running time of any other Fibonacci-heap operations.
@@ -189,8 +190,6 @@ Since calling $\text{UNION}$ on a heap and a single node is the same as insertio
 **b.** Suppose that we also had an additional cost to the potential function that was proportional to the size of the structure. This would only increase when we do an insertion, and then only by a constant amount, so there aren't any worries concerning this increased potential function raising the amortized cost of any operations. Once we've made this modification, to the potential function, we also modify the heap itself by having a doubly linked list along all of the leaf nodes in the heap.
 
 To prune we then pick any leaf node, remove it from it's parent's child list, and remove it from the list of leaves. We repeat this $\min(r, H.n)$ times. This causes the potential to drop by an amount proportional to $r$ which is on the order of the actual cost of what just happened since the deletions from the linked list take only constant amounts of time each. So, the amortized time is constant.
-
-
 # Problem 19-4 2-3-4 heaps
 
 > Chapter 18 introduced the 2-3-4 tree, in which every internal node (other than possibly the root) has two, three, or four children and all leaves have the same depth. In this problem, we shall implement **_2-3-4 heaps_**, which support the mergeable-heap operations.
@@ -222,8 +221,3 @@ To prune we then pick any leaf node, remove it from it's parent's child list, an
 **e.** $\text{EXTRACT-MIN}$ simply locates the minimum as done in part (a), then deletes it as in part (d).
 
 **f.** This can be done by implementing the join operation, as in Problem 18-2 (b).
-
-<!-- hotfix: KaTeX -->
-<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>

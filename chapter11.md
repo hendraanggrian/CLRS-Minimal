@@ -1,3 +1,8 @@
+<!-- hotfix: KaTeX -->
+<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>
+
 <h1 style="text-align: center;">11 Hash Tables</h1>
 
 # 11.1 Direct-address tables
@@ -416,8 +421,6 @@ $$
 > **d.** Show that the expected length $\text E[X]$ of the longest probe sequence is $O(\lg n)$.
 
 (Removed)
-
-
 # Problem 11-2 Slot-size bound for chaining
 
 > Suppose that we have a hash table with $n$ slots, with collisions resolved by chaining, and suppose that $n$ keys are inserted into the table. Each key is equally likely to be hashed to each slot. Let $M$ be the maximum number of keys in any slot after all the keys have been inserted. Your mission is to prove an $O(\lg n / \lg\lg n)$ upper bound on $\text E[M]$, the expected value of $M$.
@@ -439,8 +442,6 @@ $$
 > Conclude that $\text E[M] = O(\lg n / \lg\lg n)$.
 
 (Removed)
-
-
 # Problem 11-3 Quadratic probing
 
 > Suppose that we are given a key $k$ to search for in a hash table with positions $0, 1, \ldots, m - 1$, and suppose that we have a hash function $h$ mapping the key space into the set $\\{0, 1, \ldots, m - 1\\}$. The search scheme is as follows:
@@ -456,8 +457,6 @@ $$
 > **b.** Prove that this algorithm examines every table position in the worst case.
 
 (Removed)
-
-
 # Problem 11-4 Hashing and authentication
 
 > Let $\mathcal H$ be a class of hash functions in which each hash function $h \in \mathcal H$ maps the universe $U$ of keys to $\\{0, 1, \ldots, m - 1 \\}$. We say that $\mathcal H$ is **_k-universal_** if, for every fixed sequence of $k$ distinct keys $\langle x^{(1)}, x^{(2)}, \ldots, x^{(k)} \rangle$ and for any $h$ chosen at random from $\mathcal H$, the sequence $\langle h(x^{(1)}), h(x^{(2)}), \ldots, h(x^{(k)}) \rangle$ is equally likely to be any of the $m^k$ sequences of length $k$ with elements drawn from $\\{0, 1, \ldots, m - 1 \\}$.
@@ -487,8 +486,3 @@ $$
 Thus, $\langle h'\_{ab}(x), h'\_{ab}(y) \rangle$ is equally likely to be any of the $p^2$ sequences, so $\mathcal H$ is $2$-universal.
 
 **d.** Since $\mathcal H$ is $2$-universal, every pair of $\langle t, t' \rangle$ is equally likely to appear, thus $t'$ could be any value from $\mathbb Z_p$. Even the adversary knows $\mathcal H$, since $\mathcal H$ is $2$-universal, then $\mathcal H$ is universal, the probability of choosing a hash function that $h(k) = h(l)$ is at most $1 / p$, therefore the probability is at most $1 / p$.
-
-<!-- hotfix: KaTeX -->
-<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>

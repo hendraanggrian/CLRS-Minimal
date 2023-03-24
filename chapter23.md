@@ -1,3 +1,8 @@
+<!-- hotfix: KaTeX -->
+<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>
+
 <h1 style="text-align: center;">23 Minimum Spanning Trees</h1>
 
 # 23.1 Growing a minimum spanning tree
@@ -236,8 +241,6 @@ Then, the minimum spanning tree has weight $7$, but there are two spanning trees
 **c.** We give here a dynamic programming solution. Suppose that we want to find it for $(u, v)$. First, we will identify the vertex $x$ that occurs immediately after $u$ on the simple path from $u$ to $v$. We will then make $\max[u, v]$ equal to the max of $w((u, x))$ and $\max[w, v]$. Lastly, we just consider the case that $u$ and $v$ are adjacent, in which case the maximum weight edge is just the single edge between the two. If we can find $x$ in constant time, then we will have the whole dynamic program running in time $O(V^2)$, since that's the size of the table that's being built up. To find $x$ in constant time, we preprocess the tree. We first pick an arbitrary root. Then, we do the preprocessing for Tarjan's off-line least common ancestors algorithm (See problem 21-3). This takes time just a little more than linear, $O(|V|\alpha(|V|))$. Once we've computed all the least common ancestors, we can just look up that result at some point later in constant time. Then, to find the $w$ that we should pick, we first see if $u = \text{LCA}(u, v)$ if it does not, then we just pick the parent of $u$ in the tree. If it does, then we flip the question on its head and try to compute $\max[v, u]$, we are guaranteed to not have this situation of $v = \text{LCA}(v, u)$ because we know that $u$ is an ancestor of $v$.
 
 **d.** We provide here an algorithm that takes time $O(V^2)$ and leave open if there exists a linear time solution, that is a $O(E + V)$ time solution. First, we find a minimum spanning tree in time $O(E + V \lg(V))$, which is in $O(V^2)$. Then, using the algorithm from part c, we find the double array max. Then, we take a running minimum over all pairs of vertices $u$, $v$, of the value of $w(u, v) - \max[u, v]$. If there is no edge between $u$ and $v$, we think of the weight being infinite. Then, for the pair that resulted in the minimum value of this difference, we add in that edge and remove from the minimum spanning tree, an edge that is in the path from $u$ to $v$ that has weight $\max[u, v]$.
-
-
 # Problem 23-2 Minimum spanning tree in sparse graphs
 
 > For a very sparse connected graph $G = (V, E)$, we can further improve upon the $O(E + V\lg V)$ running time of Prim's algorithm with Fibonacci heaps by preprocessing $G$ to decrease the number of vertices before running Prim's algorithm. In particular, we choose, for each vertex $u$, the minimum-weight edge $(u, v)$ incident on $u$, and we put $(u, v)$ into the minimum spanning tree under construction. We then contract all chosen edges (see Section B.4). Rather than contracting these edges one at a time, we first identify sets of vertices that are united into the same new vertex. Then we create the graph that would have resulted from contracting these edges one at a time, but we do so by "renaming" edges according to the sets into which their endpoints were placed. Several edges from the original graph may be renamed the same as each other. In such a case, only one edge results, and its weight is the minimum of the weights of the corresponding original edges.
@@ -312,8 +315,6 @@ $$E\lg\lg V < E + V\lg V$$
 to find that we need
 
 $$E < \frac{V\lg V}{\lg\lg V-1} = O(\frac{V\lg V}{\lg\lg V}).$$
-
-
 # Problem 23-3 Bottleneck spanning tree
 
 > A **_bottleneck spanning tree_** $T$ of an undirected graph $G$ is a spanning tree of $G$ whose largest edge weight is minimum over all spanning trees of $G$. We say that the value of the bottleneck spanning tree is the weight of the maximum-weight edge in $T$.
@@ -339,8 +340,6 @@ First, we could have that there is a bottleneck spanning tree with weight at mos
 Second, we could have that there is no bottleneck spanning tree with at most that weight. Then, we should run a procedure similar to problem 23-2 to contract all of the edges that have weight at most the weight of the median. This takes time $O(E)$ and then we are left solving the problem on a graph that now has half the edges.
 
 Observe that both cases are $O(E)$ and each recursion reduces the problem size into half. The solution to this recurrence is therefore linear.
-
-
 # Problem 23-4 Alternative minimum-spanning-tree algorithms
 
 > In this problem, we give pseudocode for three different algorithms. Each one takes a connected graph and a weight function as input and returns a set of edges $T$. For each algorithm, either prove that $T$ is a minimum spanning tree or prove that $T$ is not a minimum spanning tree. Also describe the most efficient implementation of each algorithm, whether or not it computes a minimum spanning tree.
@@ -392,8 +391,3 @@ An efficient implementation will use disjoint sets to keep track of connected co
 **c.** This does return an $\text{MST}$. To see this, we simply quote the result from exercise 23.1-5. The only edges we remove are the edges of maximum weight on some cycle, and there always exists a minimum spanning tree which doesn't include these edges. Moreover, if we remove an edge from every cycle then the resulting graph cannot have any cycles, so it must be a tree.
 
 To implement this, we use the approach taken in part (b), except now we also need to find the maximum weight edge on a cycle. For each edge which introduces a cycle we can perform a $\text{DFS}$ to find the cycle and max weight edge. Since the tree at that time has at most one cycle, it has at most $|V|$ edges, so we can run $\text{DFS}$ in $O(V)$. The runtime is thus $O(EV)$.
-
-<!-- hotfix: KaTeX -->
-<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>

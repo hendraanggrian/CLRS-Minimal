@@ -1,3 +1,8 @@
+<!-- hotfix: KaTeX -->
+<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>
+
 <h1 style="text-align: center;">14 Augmenting Data Structures</h1>
 
 # 14.1 Dynamic order statistics
@@ -203,8 +208,6 @@ Otherwise add this interval to $T$ and increment the pointer to $L$. If $R$ is t
 > **b.** Design a data structure that efficiently supports the operations $\text{INTERVAL-INSERT}$, $\text{INTERVAL-DELETE}$, and $\text{FIND-POM}$, which returns a point of maximum overlap. ($\textit{Hint:}$ Keep a red-black tree of all the endpoints. Associate a value of $+1$ with each left endpoint, and associate a value of $-1$ with each right endpoint. Augment each node of the tree with some extra information to maintain the point of maximum overlap.)
 
 (Removed)
-
-
 # Problem 14-2 Josephus permutation
 
 > We define the **_Josephus problem_** as follows. Suppose that $n$ people form a circle and that we are given a positive integer $m \le n$. Beginning with a designated first person, we proceed around the circle, removing every $m$th person. After each person is removed, counting continues around the circle that remains. This process continues until we have removed all $n$ people. The order in which the people are removed from the circle defines the **_$(n, m)$-Josephus permutation_** of the integers $1, 2, \ldots, n$. For example, the $(7, 3)$-Josephus permutation is $\langle 3, 6, 2, 7, 5, 1, 4 \rangle$.
@@ -214,8 +217,3 @@ Otherwise add this interval to $T$ and increment the pointer to $L$. If $R$ is t
 > **b.** Suppose that $m$ is not a constant. Describe an $O(n\lg n)$-time algorithm that, given integers $n$ and $m$, outputs the $(n, m)$-Josephus permutation.
 
 (Removed)
-
-<!-- hotfix: KaTeX -->
-<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>

@@ -53,17 +53,24 @@ for chapter in "docs/"*; do
   if [[ -f "$target_file" ]]; then
     rm "$target_file"
   fi
-  echo "<h1 style=\"text-align: center;\">$chapter_title</h1>" > "$target_file"
+
+  echo "<!-- hotfix: KaTeX -->" > "$target_file"
+  echo "<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->" >> "$target_file"
+  echo "<script type=\"text/javascript\" src=\"http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML\"></script>" >> "$target_file"
+  echo "<script type=\"text/x-mathjax-config\">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>" >> "$target_file"
+  echo >> "$target_file"
+  echo "<h1 style=\"text-align: center;\">$chapter_title</h1>" >> "$target_file"
+  echo >> "$target_file"
 
   for section in "$chapter/"*; do
     if [[ -f "$section" ]]; then # there is 1 directory here
       section_name="$(basename "$section")"
       echo "  - $section_name"
 
-      echo >> "$target_file"
       echo "$(<docs_title/$chapter_name/$section_name)" >> "$target_file"
       echo >> "$target_file"
       echo "$(<$section)" >> "$target_file"
+      echo >> "$target_file"
     fi
   done
 
@@ -72,17 +79,10 @@ for chapter in "docs/"*; do
     problem_name="$(basename "$problem")"
     echo "    - $problem_name"
 
-    echo >> "$target_file"
     echo "$(<docs_title/$chapter_name/Problems/$problem_name)" >> "$target_file"
     echo >> "$target_file"
     echo "$(<$problem)" >> "$target_file"
-    echo >> "$target_file"
   done
-
-  echo "<!-- hotfix: KaTeX -->" >> "$target_file"
-  echo "<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->" >> "$target_file"
-  echo "<script type=\"text/javascript\" src=\"http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML\"></script>" >> "$target_file"
-  echo "<script type=\"text/x-mathjax-config\">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>" >> "$target_file"
 done
 
 echo

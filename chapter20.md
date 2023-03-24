@@ -1,3 +1,8 @@
+<!-- hotfix: KaTeX -->
+<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>
+
 <h1 style="text-align: center;">20 van Emde Boas Trees</h1>
 
 # 20.1 Preliminary approaches
@@ -239,8 +244,6 @@ The first product has a highest power of $u$ corresponding to always multiplying
 **f.** As mentioned in the errata, this part should instead be changed to $O(n\lg n)$ space. When we are adding an element, we may have to add an entry to a dynamic hash table, which means that a constant amount of extra space would be needed. If we are adding an element to that table, we also have to add an element to the RS-vEB tree in the summary, but the entry that we add in the cluster will be a constant size RS-vEB tree. We can charge the cost of that addition to the summary table to the making the minimum element entry that we added in the cluster table. Since we are always making at least one element be added as a new min entry somewhere, this amortization will mean that it is only a constant amount of time in order to store the new entry.
 
 **g.** It only takes a constant amount of time to create an empty RS-vEB tree. This is immediate since the only dependence on $u$ in $\text{CREATE-NEW-RSvEB-TREE}(u)$ is on line 2 when $V.u$ is initialized, but this only takes a constant amount of time. Since nothing else in the procedure depends on $u$, it must take a constant amount of time.
-
-
 # Problem 20-2 $y$-fast tries
 
 > This problem investigates D. Willard's "$y$-fast tries" which, like van Emde Boas trees, perform each of the operations $\text{MEMBER}$, $\text{MINIMUM}$, $\text{MAXIMUM}$, $\text{PREDECESSOR}$, and $\text{SUCCESSOR}$ on elements drawn from a universe with size $u$ in $O(\lg\lg u)$ worst-case time. The $\text{INSERT}$ and $\text{DELETE}$ operations take $O(\lg\lg u)$ amortized time. Like reduced-space van Emde Boas trees (see Problem 20-1), $y$-fast tries use only $O(n)$ space to store $n$ elements. The design of $y$-fast tries relies on perfect hashing (see Section 11.5).
@@ -302,8 +305,3 @@ Observe that $y$ can have at most one child in the BST, because if it had both c
 Any split or merge takes $O(\lg u)$ since we have to insert or delete an element in the data structure storing our representatives, which by part (b) takes $O(\lg u)$.
 
 However, we only split a tree after at least $\lg u$ insertions, since the size of one of the red-black trees needs to increase from $\lg u$ to $2\lg u$ and we only merge two trees after at least $(1 / 2)\lg u$ deletions, because the size of the merging tree needs to have decreased from $\lg u$ to $(1 / 2)\lg u$. Thus, the amortized cost of the merges, splits, and updates to representatives is $O(1)$ per insertion or deletion, so the amortized cost is $O(\lg\lg u)$ as desired.
-
-<!-- hotfix: KaTeX -->
-<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>

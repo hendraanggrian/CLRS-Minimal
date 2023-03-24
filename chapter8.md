@@ -1,3 +1,8 @@
+<!-- hotfix: KaTeX -->
+<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>
+
 <h1 style="text-align: center;">8 Sorting in Linear Time</h1>
 
 # 8.1 Lower bounds for sorting
@@ -280,8 +285,6 @@ Since we are picking the two subtrees to be roughly equal size, the total depth 
 **e.** Since before we that a tree with $k$ leaves needs to have external length $k\lg k$, and that a sorting tree needs at least $n!$ trees, a sorting tree must have external tree length at least $n!\lg (n!)$. Since the average case run time is the depth of a leaf weighted by the probability of that leaf being the one that occurs, we have that the run time is at least $\frac{n!\lg (n!)}{n!} = \lg (n!) \in \Omega(n\lg n)$.
 
 **f.** Since the expected runtime is the average over all possible results from the random bits, if every possible fixing of the randomness resulted in a higher runtime, the average would have to be higher as well.
-
-
 # Problem 8-2 Sorting in place in linear time
 
 > Suppose that we have an array of $n$ data records to sort and that the key of each record has the value $0$ or $1$. An algorithm for sorting such a set of records might possess some subset of the following three desirable characteristics:
@@ -336,8 +339,6 @@ MODIFIED-COUNTING-SORT(A, k)
 ```
 
 In place (storage space is $\Theta(k)$) but not stable.
-
-
 # Problem 8-3 Sorting variable-length items
 
 > **a.** You are given an array of integers, where different integers may have different numbers of digits, but the total number of digits over _all_ the integers in the array is $n$. Show how to sort the array in $O(n)$ time.
@@ -349,8 +350,6 @@ In place (storage space is $\Theta(k)$) but not stable.
 **a.** First, sort the integer according to their lengths by bucket sort, where we make a bucket for each possible number of digits. We sort each these uniform length sets of integers using radix sort. Then, we just concatenate the sorted lists obtained from each bucket.
 
 **b.** Make a bucket for every letter in the alphabet, each containing the words that start with that letter. Then, forget about the first letter of each of the words in the bucket, concatenate the empty word (if it's in this new set of words) with the result of recursing on these words of length one less. Since each word is processed a number of times equal to it's length, the runtime will be linear in the total number of letters.
-
-
 # Problem 8-4 Water jugs
 
 > Suppose that you are given $n$ red and $n$ blue water jugs, all of different shapes and sizes. All red jugs hold different amounts of water, as do the blue ones. Moreover, for every red jug, there is a blue jug that holds the same amount of water, and vice versa.
@@ -368,8 +367,6 @@ In place (storage space is $\Theta(k)$) but not stable.
 **b.** We can imagine first lining up the red jugs in some order. Then a solution to this problem becomes a permutation of the blue jugs such that the $i$th blue jug is the same size as the $i$th red jug. As in section 8.1, we can make a decision tree which represents comparisons made between blue jugs and red jugs. An internal node represents a comparison between a specific pair of red and blue jugs, and a leaf node represents a permutation of the blue jugs based on the results of the comparison. We are interested in when one jug is greater than, less than, or equal in size to another jug, so the tree should have $3$ children per node. Since there must be at least $n!$ leaf nodes, the decision tree must have height at least $\log_3 (n!)$. Since a solution corresponds to a simple path from root to leaf, an algorithm must make at least $\Theta(n\lg n)$ comparisons to reach any leaf.
 
 **c.** We use an algorithm analogous to randomized quicksort. Select a blue jug at random. Partition the red jugs into those which are smaller than the blue jug, and those which are larger. At some point in the comparisons, you will find the red jug which is of equal size. Once the red jugs have been divided by size, use the red jug of equal size to partition the blue jugs into those which are smaller and those which are larger. If $k$ red jugs are smaller than the originally chosen jug, we need to solve the original problem on input of size $k − 1$ and size $n − k$, which we will do in the same manner. A subproblem of size $1$ is trivially solved because if there is only one red jug and one blue jug, they must be the same size. The analysis of expected number of comparisons is exactly the same as that of $\text{RANDOMIZED-QUICKSORT}$ given on pages 181-184. We are running the procedure twice so the expected number of comparisons is doubled, but this is absorbed by the big-$O$ notation. In the worst case, we pick the largest jug each time, which results in $\sum_{i = 2}^n i + i - 1 = n^2$ comparisons.
-
-
 # Problem 8-5 Average sorting
 
 > Suppose that, instead of sorting an array, we just require that the elements increase on average. More precisely, we call an $n$-element array $A$ **_k-sorted_** if, for all $i = 1, 2, \ldots, n - k$, the following holds:
@@ -409,8 +406,6 @@ $$
 **e.** Using a heap, we can sort a $k$-sorted array of length $n$ in $O(n\lg k)$ time. (The height of the heap is $\lg k$, the solution to Exercise 6.5-9.)
 
 **f.** The lower bound of sorting each part is $\Omega(n / k\lg(n / k))$, so the total lower bound is $\Theta(n\lg (n/k))$. Since $k$ is a constant, therefore $\Theta(n\lg(n / k)) = \Omega(n\lg n)$.
-
-
 # Problem 8-6 Lower bound on merging sorted lists
 
 > The problem of merging two sorted lists arises frequently. We have seen a procedure for it as the subroutine $\text{MERGE}$ in Section 2.3.1. In this problem, we will prove a lower bound of $2n - 1$ on the worst-case number of comparisons required to merge two sorted lists, each containing $n$ items.
@@ -444,8 +439,6 @@ $$
 **c.** We have to know the order of the two consecutive elements.
 
 **d.** Let list $A = 1, 3, 5, \ldots, 2n - 1$ and $B = 2, 4, 6, \ldots, 2n$. By part (c), we must compare $1$ with $2$, $2$ with $3$, $3$ with $4$, and so on up until we compare $2n - 1$ with $2n$. This amounts to a total of $2n - 1$ comparisons.
-
-
 # Problem 8-7 The $0$-$1$ sorting lemma and columnsort
 
 > A **_compare-exchange_** operation on two array elements $A[i]$ and $A[j]$, where $i < j$, has the form
@@ -519,8 +512,3 @@ $$
 > **h.** Suggest a simple change to step 1 that allows us to maintain the requirement that $r \ge 2s^2$ even when $s$ does not divide $r$, and prove that with your change, columnsort correctly sorts.
 
 (Removed)
-
-<!-- hotfix: KaTeX -->
-<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>

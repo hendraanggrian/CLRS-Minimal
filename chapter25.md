@@ -1,3 +1,8 @@
+<!-- hotfix: KaTeX -->
+<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>
+
 <h1 style="text-align: center;">25 All-Pairs Shortest Paths</h1>
 
 # 25.1 Shortest paths and matrix multiplication
@@ -508,8 +513,6 @@ which is impossible, thus $\delta(s, v) - \delta(s, u) = w(u, v)$, $\hat w(u, v)
 **b.** Suppose that we currently have two strongly connected components, each of size $|V| / 2$ with no edges between them. Then their transitive closures computed so far will consist of two complete directed graphs on $|V| / 2$ vertices each. So, there will be a total of $|V|^2 / 2$ edges adding the number of edges in each together. Then, we add a single edge from one component to the other. This will mean that every vertex in the component the edge is coming from will have an edge going to every vertex in the component that the edge is going to. So, the total number of edges after this operation will be $|V| / 2 + |V| / 4$ So, the number of edges increased by $|V| / 4$. Since each time we add an edge, we need to use at least constant time, since there is no cheap way to add many edges at once, the total amount of time needed is $\Omega(|V|^2)$.
 
 **c.** We will have each vertex maintain a tree of vertices that have a path to it and a tree of vertices that it has a path to. The second of which is the transitive closure at each step. Then, upon inserting an edge, $(u, v)$, we will look at successive ancestors of $u$, and add $v$ to their successor tree, just past $u$. If we ever don't insert an edge when doing this, we can stop exploring that branch of the ancestor tree. Similarly, we keep doing this for all of the ancestors of $v$. Since we are able to short circuit if we ever notice that we have already added an edge, we know that we will only ever reconsider the same edge at most $n$ times, and, since the number of edges is $O(n^2)$, the total runtime is $O(n^3)$.
-
-
 # Problem 25-2 Shortest paths in epsilon-dense graphs
 
 > A graph $G = (V, E)$ is **_$\epsilon$-dense_** if $|E| = \Theta(V^{1 + \epsilon})$ for some constant $\epsilon$ in the range $0 < \epsilon \le 1$. By using $d$-ary min-heaps (see Problem 6-2) in shortest-paths algorithms on $\epsilon$-dense graphs, we can match the running times of Fibonacci-heap-based algorithms without using as complicated a data structure.
@@ -543,8 +546,3 @@ $$
 **c.** Run $|V|$ times Dijkstra, since the algorithm is $O(E)$ based on (b), the total time is $O(VE)$.
 
 **d.** Johnson's reweight is $O(VE)$.
-
-<!-- hotfix: KaTeX -->
-<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>

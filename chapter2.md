@@ -1,3 +1,8 @@
+<!-- hotfix: KaTeX -->
+<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>
+
 <h1 style="text-align: center;">2 Getting Started</h1>
 
 # 2.1 Insertion sort
@@ -328,8 +333,6 @@ $$
 $$
 
 **d.** Choose $k$ be the largest length of sublist on which insertion sort is faster than merge sort.
-
-
 # Problem 2-2 Correctness of bubblesort
 
 > Bubblesort is a popular, but inefficient, sorting algorithm. It works by repeatedly swapping adjacent elements that are out of order.
@@ -375,8 +378,6 @@ $$
 **Termination:** The loop terminates when $i = A.length$. At that point the array $A[1..n]$ will consists of all elements in sorted order.
 
 **d.** The $i$th iteration of the **for** loop of lines 1-4 will cause $n − i$ iterations of the **for** loop of lines 2-4, each with constant time execution, so the worst-case running time of bubble sort is $\Theta(n^2)$ which is same as the worst-case running time of insertion sort.
-
-
 # Problem 2-3 Correctness of Horner's rule
 
 > The following code fragment implements Horner's rule for evaluating a polynomial
@@ -442,8 +443,6 @@ $$
 $$y = \sum_{k = 0}^{n - i - 1} a_{k + i + 1} x^k = \sum_{k = 0}^n a_k x^k.$$
 
 **d.** The invariant of the loop is a sum that equals a polynomial with the given coefficients.
-
-
 # Problem 2-4 Inversions
 
 > Let $A[1..n]$ be an array of $n$ distinct numbers. If $i < j$ and $A[i] > A[j]$, then the pair $(i, j)$ is called an **_inversion_** of $A$.
@@ -506,8 +505,3 @@ MERGE-INVERSIONS(A, p, q, r)
             j = j + 1
     return inversions
 ```
-
-<!-- hotfix: KaTeX -->
-<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>

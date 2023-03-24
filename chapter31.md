@@ -1,3 +1,8 @@
+<!-- hotfix: KaTeX -->
+<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>
+
 <h1 style="text-align: center;">31 Number-Theoretic Algorithms</h1>
 
 # 31.1 Elementary number-theoretic notions
@@ -742,8 +747,6 @@ BINARY-GCD(a, b)
         return BINARY-GCD(a, b >> 1)
     return BINARY-GCD(a >> 1, b)
 ```
-
-
 # Problem 31-2 Analysis of bit operations in Euclid's algorithm
 
 > **a.** Consider the ordinary "paper and pencil" algorithm for long division: dividing $a$ by $b$, which yields a quotient $q$ and remainder $r$. Show that this method requires $O((1 + \lg q) \lg b)$ bit operations.
@@ -773,8 +776,6 @@ $$
 $$
 
 **c.** $\mu(a, b) = (1 + \lg a)(1 + \lg b) \approx \beta^2$
-
-
 # Problem 31-3 Three algorithms for Fibonacci numbers
 
 > This problem compares the efficiency of three methods for computing the $n$th Fibonacci number $F_n$, given $n$. Assume that the cost of adding, subtracting, or multiplying two numbers is $O(1)$, independent of the size of the numbers.
@@ -944,8 +945,6 @@ MATRIX-POW(A, n)
     $$P(n) = P(n / 2) + \Theta(\beta^2),$$
 
     which has a solution of $\Theta(\log n \cdot \beta^2) = \Theta(\beta^3)$ or $\Theta(\log^3 n)$.
-
-
 # Problem 31-4 Quadratic residues
 
 > Let $p$ be an odd prime. A number $a \in Z_p^\*$ is a **_quadratic residue_** if the equation $x^2 = a \pmod p$ has a solution for the unknown $x$.
@@ -963,8 +962,3 @@ MATRIX-POW(A, n)
 > **d.** Describe an efficient randomized algorithm for finding a nonquadratic residue, modulo an arbitrary prime $p$, that is, a member of $\mathbb Z_p^\*$ that is not a quadratic residue. How many arithmetic operations does your algorithm require on average?
 
 (Omit!)
-
-<!-- hotfix: KaTeX -->
-<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>

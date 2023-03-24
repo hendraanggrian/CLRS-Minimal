@@ -1,3 +1,8 @@
+<!-- hotfix: KaTeX -->
+<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>
+
 <h1 style="text-align: center;">33 Computational Geometry</h1>
 
 # 33.1 Line-segment properties
@@ -215,8 +220,6 @@ In addition to returning the distance of the closest pair, the modify the algori
 > **b.** Prove that $\Omega(n\lg n)$ time is required to compute the convex layers of a set of $n$ points with any model of computation that requires $\Omega(n\lg n)$ time to sort $n$ real numbers.
 
 (Omit!)
-
-
 # Problem 33-2 Maximal layers
 
 > Let $Q$ be a set of $n$ points in the plane. We say that point $(x, y)$ **_dominates_** point $(x', y')$ if $x \ge x'$ and $y \ge y'$. A point in $Q$ that is dominated by no other points in $Q$ is said to be **_maximal_**. Note that $Q$ may contain many maximal points, which can be organized into **_maximal layers_** as follows. The first maximal layer $L_1$ is the set of maximal points of $Q$. For $i > 1$, the $i$th maximal layer $L_i$ is the set of maximal points in $Q - \bigcup_{j = 1}^{i - 1} L_j$.
@@ -238,8 +241,6 @@ In addition to returning the distance of the closest pair, the modify the algori
 > **d.** Do any difficulties arise if we now allow input points to have the same $x$- or $y$-coordinate? Suggest a way to resolve such problems.
 
 (Omit!)
-
-
 # Problem 33-3 Ghostbusters and ghosts
 
 > A group of $n$ Ghostbusters is battling n ghosts. Each Ghostbuster carries a proton pack, which shoots a stream at a ghost, eradicating it. A stream goes in a straight line and terminates when it hits the ghost. The Ghostbusters decide upon the following strategy. They will pair off with the ghosts, forming $n$ Ghostbuster-ghost pairs, and then simultaneously each Ghostbuster will shoot a stream at his chosen ghost. As we all know, it is very dangerous to let streams cross, and so the Ghostbusters must choose pairings for which no streams will cross.
@@ -251,8 +252,6 @@ In addition to returning the distance of the closest pair, the modify the algori
 > **b.** Give an $O(n^2\lg n)$-time algorithm to pair Ghostbusters with ghosts in such a way that no streams cross.
 
 (Omit!)
-
-
 # Problem 33-4 Picking up sticks
 
 > Professor Charon has a set of $n$ sticks, which are piled up in some configuration. Each stick is specified by its endpoints, and each endpoint is an ordered triple giving its $(x, y, z)$ coordinates. No stick is vertical. He wishes to pick up all the sticks, one at a time, subject to the condition that he may pick up a stick only if there is no other stick on top of it.
@@ -262,8 +261,6 @@ In addition to returning the distance of the closest pair, the modify the algori
 > **b.** Describe an efficient algorithm that determines whether it is possible to pick up all the sticks, and if so, provides a legal order in which to pick them up.
 
 (Omit!)
-
-
 # Problem 33-5 Sparse-hulled distributions
 
 > Consider the problem of computing the convex hull of a set of points in the plane that have been drawn according to some known random distribution. Sometimes, the number of points, or size, of the convex hull of $n$ points drawn from such a distribution has expectation $O(n^{1 - \epsilon})$ for some constant $\epsilon > 0$. We call such a distribution **_sparse-hulled_**. Sparse-hulled distributions include the following:
@@ -279,8 +276,3 @@ In addition to returning the distance of the closest pair, the modify the algori
 > **b.** Show how to compute the convex hull of a set of $n$ points drawn independently according to a sparse-hulled distribution in $O(n)$ average-case time. ($\textit{Hint:}$ Recursively find the convex hulls of the first $n / 2$ points and the second $n / 2$ points, and then combine the results.)
 
 (Omit!)
-
-<!-- hotfix: KaTeX -->
-<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>

@@ -1,3 +1,8 @@
+<!-- hotfix: KaTeX -->
+<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>
+
 <h1 style="text-align: center;">16 Greedy Algorithms</h1>
 
 # 16.1 An activity-selection problem
@@ -485,8 +490,6 @@ IS-INDEPENDENT(A)
 **c.** Let the coin denominations be $\\{1, 3, 4\\}$, and the value to make change for be $6$. The greedy solution would result in the collection of coins $\\{1, 1, 4\\}$ but the optimal solution would be $\\{3, 3\\}$.
 
 **d.** See algorithm $\text{MAKE-CHANGE}(S, v)$ which does a dynamic programming solution. Since the first forloop runs $n$ times, and the inner for loop runs $k$ times, and the later while loop runs at most $n$ times, the total running time is $O(nk)$.
-
-
 # Problem 16-2 Scheduling to minimize average completion time
 
 > Suppose you are given a set $S = \\{a_1, a_2, \ldots, a_n\\}$ of tasks, where task $a_i$ requires $p_i$ units of processing time to complete, once it has started. You have one computer on which to run these tasks, and the computer can run only one task at a time. Let $c_i$ be the **_completion time_** of task $a_i$ , that is, the time at which task $a_i$ completes processing. Your goal is to minimize the average completion time, that is, to minimize $(1 / n) \sum_{i = 1}^n c_i$. For example, suppose there are two tasks, $a_1$ and $a_2$, with $p_1 = 3$ and $p_2 = 5$, and consider the schedule in which $a_2$ runs first, followed by $a_1$. Then $c_2 = 5$, $c_1 = 8$, and the average completion time is $(5 + 8) / 2 = 6.5$. If task $a_1$ runs first, however, then $c_1 = 3$, $c_2 = 8$, and the average completion time is $(3 + 8) / 2 = 5.5$.
@@ -498,8 +501,6 @@ IS-INDEPENDENT(A)
 **a.** Order the tasks by processing time from smallest to largest and run them in that order. To see that this greedy solution is optimal, first observe that the problem exhibits optimal substructure: if we run the first task in an optimal solution, then we obtain an optimal solution by running the remaining tasks in a way which minimizes the average completion time. Let $O$ be an optimal solution. Let $a$ be the task which has the smallest processing time and let b be the first task run in $O$. Let $G$ be the solution obtained by switching the order in which we run $a$ and $b$ in $O$. This amounts reducing the completion times of a and the completion times of all tasks in $G$ between $a$ and $b$ by the difference in processing times of $a$ and $b$. Since all other completion times remain the same, the average completion time of $G$ is less than or equal to the average completion time of $O$, proving that the greedy solution gives an optimal solution. This has runtime $O(n\lg n)$ because we must first sort the elements.
 
 **b.** Without loss of generality we my assume that every task is a unit time task. Apply the same strategy as in part (a), except this time if a task which we would like to add next to the schedule isn't allowed to run yet, we must skip over it. Since there could be many tasks of short processing time which have late release time, the runtime becomes $O(n^2)$ since we might have to spend $O(n)$ time deciding which task to add next at each step.
-
-
 # Problem 16-3 Acyclic subgraphs
 
 > **a.** The **_incidence matrix_** for an undirected graph $G = (V, E)$ is a $|V| \times |E|$ matrix $M$ such that $M_{ve} = 1$ if edge $e$ is incident on vertex $v$, and $M_{ve} = 0$ otherwise. Argue that a set of columns of $M$ is linearly independent over the field of integers modulo $2$ if and only if the corresponding set of edges is acyclic. Then, use the result of Exercise 16.4-2 to provide an alternate proof that $(E, \mathcal I)$ of part (a) is a matroid.
@@ -525,8 +526,6 @@ Now, suppose that our graph had some subset of edges which was a cycle. Then, th
 **d.** Suppose that the graph contained a directed cycle consisting of edges corresponding to columns $S$. Then, since each vertex that is involved in this cycle has exactly as many edges going out of it as going into it, the rows corresponding to each vertex will add up to zero, since the outgoing edges count negative and the incoming vertices count positive. This means that the sum of the columns in $S$ is zero, so, the columns were not linearly independent.
 
 **e.** There is not a perfect correspondence because we didn't show that not containing a directed cycle means that the columns are linearly independent, so there is not perfect correspondence between these sets of independent columns (which we know to be a matriod) and the acyclic sets of edges (which we know not to be a matroid).
-
-
 # Problem 16-4 Scheduling variations
 
 > Consider the following algorithm for the problem from Section 16.5 of scheduling unit-time tasks with deadlines and penalties. Let all $n$ time slots be initially empty, where time slot $i$ is the unit-length slot of time that finishes at time $i$. We consider the tasks in order of monotonically decreasing penalty. When considering task $a_j$, if there exists a time slot at or before $a_j$'s deadline $d_j$ that is still empty, assign $a_j$ to the latest such slot, filling it. If there is no such slot, assign task $a_j$ to the latest of the as yet unfilled slots.
@@ -557,8 +556,6 @@ SCHEDULING-VARIATIONS(A)
         if D[a[i].time + 1] != NIL
             UNION(D[a[i].time], D[a[i].time + 1])
 ```
-
-
 # Problem 16-5 Off-line caching
 
 > Modern computers use a cache to store a small amount of data in a fast memory. Even though a program may access large amounts of data, by storing a small subset of the main memory in the **_cache_**—a small but faster memory—overall access time can greatly decrease. When a computer program executes, it makes a sequence $\langle r_1, r_2, \ldots, r_n \rangle$ of $n$ memory requests, where each request is for a particular data element. For example, a program that accesses 4 distinct elements $\\{a, b, c, d\\}$ might make the sequence of requests $\langle d, b, d, b, d, a, c, d, b, a, c, b \rangle$. Let $k$ be the size of the cache. When the cache contains $k$ elements and the program requests the $(k + 1)$st element, the system must decide, for this and each subsequent request, which $k$ elements to keep in the cache. More precisely, for each request $r_i$, the cache-management algorithm checks whether element $r_i$ is already in the cache. If it is, then we have a **_cache hit_**; otherwise, we have a cache miss. Upon a **_cache miss_**, the system retrieves $r_i$ from the main memory, and the cache-management algorithm must decide whether to keep $r_i$ in the cache. If it decides to keep $r_i$ and the cache already holds $k$ elements, then it must evict one element to make room for $r_i$ . The cache-management algorithm evicts data with the goal of minimizing the number of cache misses over the entire sequence of requests.
@@ -601,8 +598,3 @@ $$c[i, S] = \min_{x \in \\{S\\}} (c[i + 1, \\{r_i\\} \cup (S − \\{x\\})] + (1 
 which means that $x$ is the element that is removed from the cache unless it is the current element being accessed, in which case there is no cost of eviction.
 
 **c.** At each time we need to add something new, we can pick which entry to evict from the cache. We need to show the there is an exchange property. That is, if we are at round $i$ and need to evict someone, suppose we evict $x$. Then, if we were to instead evict the furthest in future element $y$, we would have no more evictions than before. To see this, since we evicted $x$, we will have to evict someone else once we get to $x$, whereas, if we had used the other strategy, we wouldn't of had to evict anyone until we got to $y$. This is a point later in time than when we had to evict someone to put $x$ back into the cache, so we could, at reloading $y$, just evict the person we would of evicted when we evicted someone to reload $x$. This causes the same number of misses unless there was an access to that element that wold of been evicted at reloading $x$ some point in between when $x$ any $y$ were needed, in which case furthest in future would be better.
-
-<!-- hotfix: KaTeX -->
-<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>

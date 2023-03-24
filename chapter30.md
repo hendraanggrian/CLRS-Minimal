@@ -1,3 +1,8 @@
+<!-- hotfix: KaTeX -->
+<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>
+
 <h1 style="text-align: center;">30 Polynomials and the FFT</h1>
 
 # 30.1 Representing polynomials
@@ -160,8 +165,6 @@ For the set $A$, we define the polynomial $f_A$ to have a coefficient representa
 > **c.** Show how to multiply two $n$-bit integers in $O(n^{\lg 3})$ steps, where each step operates on at most a constant number of $1$-bit values.
 
 (Omit!)
-
-
 # Problem 30-2 Toeplitz matrices
 
 > A **_Toeplitz matrix_** is an $n \times n$ matrix $A = (a_{ij})$ such that $a_{ij} = a_{i - 1, j - 1}$ for $i = 2, 3, \dots, n$ and $j = 2, 3, \dots, n$.
@@ -175,8 +178,6 @@ For the set $A$, we define the polynomial $f_A$ to have a coefficient representa
 > **d.** Give an efficient algorithm for multiplying two $n \times n$ Toeplitz matrices. Analyze its running time.
 
 (Omit!)
-
-
 # Problem 30-3 Multidimensional fast Fourier transform
 
 > We can generalize the $1$-dimensional discrete Fourier transform defined by equation $\text{(30.8)}$ to $d$ dimensions. The input is a $d$-dimensional array $A = (a_{j_1, j_2, \dots, j_d})$ whose dimensions are $n_1, n_2, \dots, n_d$, where $n_1n_2 \cdots n_d = n$. We define the $d$-dimensional discrete Fourier transform by the equation
@@ -192,8 +193,6 @@ For the set $A$, we define the polynomial $f_A$ to have a coefficient representa
 > **c.** Show that if we compute each $1$-dimensional $\text{DFT}$ by computing the fast Fourier transform, the total time to compute a $d$-dimensional $\text{DFT}$ is $O(n\lg n)$, independent of $d$.
 
 (Omit!)
-
-
 # Problem 30-4 Evaluating all derivatives of a polynomial at a point
 
 > Given a polynomial $A(x)$ of degree-bound $n$, we define its $t$th derivative by
@@ -234,8 +233,6 @@ For the set $A$, we define the polynomial $f_A$ to have a coefficient representa
 > **d.** Explain how to evaluate $A(x_0 + \omega_n^k)$ for $k = 0, 1, \dots, n - 1$ in $O(n\lg n)$ time. Conclude that we can evaluate all nontrivial derivatives of $A(x)$ at $x_0$ in $O(n\lg n)$ time.
 
 (Omit!)
-
-
 # Problem 30-5 Polynomial evaluation at multiple points
 
 > We have seen how to evaluate a polynomial of degree-bound $n$ at a single point in $O(n)$ time using Horner's rule. We have also discovered how to evaluate such a polynomial at all $n$ complex roots of unity in $O(n\lg n)$ time using the $\text{FFT}$. We shall now show how to evaluate a polynomial of degree-bound $n$ at $n$ arbitrary points in $O(n\lg^2 n)$ time.
@@ -255,8 +252,6 @@ For the set $A$, we define the polynomial $f_A$ to have a coefficient representa
 > **d.** Give an $O(n\lg^2 n)$-time algorithm to evaluate $A(x_0), A(x_1), \dots, A(x_{n - 1})$.
 
 (Omit!)
-
-
 # Problem 30-6 FFT using modular arithmetic
 
 > As defined, the discrete Fourier transform requires us to compute with complex numbers, which can result in a loss of precision due to round-off errors. For some problems, the answer is known to contain only integers, and by using a variant of the $\text{FFT}$ based on modular arithmetic, we can guarantee that the answer is calculated exactly. An example of such a problem is that of multiplying two polynomials with integer coefficients. Exercise 30.2-6 gives one approach, using a modulus of length $\Omega(n)$ bits to handle a $\text{DFT}$ on $n$ points. This problem gives another approach, which uses a modulus of the more reasonable length $O(\lg n)$; it requires that you understand the material of Chapter 31. Let $n$ be a power of $2$.
@@ -272,8 +267,3 @@ For the set $A$, we define the polynomial $f_A$ to have a coefficient representa
 > **d.** Compute the $\text{DFT}$ modulo $p = 17$ of the vector $(0, 5, 3, 7, 7, 2, 1, 6)$. Note that $g = 3$ is a generator of $\mathbb Z_{17}^\*$.
 
 (Omit!)
-
-<!-- hotfix: KaTeX -->
-<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>

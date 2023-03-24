@@ -1,3 +1,8 @@
+<!-- hotfix: KaTeX -->
+<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>
+
 <h1 style="text-align: center;">26 Maximum Flow</h1>
 
 # 26.1 Flow network
@@ -370,8 +375,6 @@ Now we show that after updating the $h$ values as suggested, we are still left w
 **a.** This problem is identical to exercise 26.1-7.
 
 **b.** Construct a vertex constrained flow network from the instance of the escape problem by letting our flow network have a vertex (each with unit capacity) for each intersection of grid lines, and have a bidirectional edge with unit capacity for each pair of vertices that are adjacent in the grid. Then, we will put a unit capacity edge going from $s$ to each of the distinguished vertices, and a unit capacity edge going from each vertex on the sides of the grid to $t$. Then, we know that a solution to this problem will correspond to a solution to the escape problem because all of the augmenting paths will be a unit flow, because every edge has unit capacity. This means that the flows through the grid will be the paths taken. This gets us the escaping paths if the total flow is equal to $m$ (we know it cannot be greater than $m$ by looking at the cut which has $s$ by itself). And, if the max flow is less than $m$, we know that the escape problem is not solvable, because otherwise we could construct a flow with value $m$ from the list of disjoint paths that the people escaped along.
-
-
 # Problem 26-2 Minimum path cover
 
 > A **_path cover_** of a directed graph $G = (V, E)$ is a set $P$ of vertex-disjoint paths such that every vertex in $V$ is included in exactly one path in $P$. Paths may start and end anywhere, and they may be of any length, including $0$. A **_minimum path cover_** of $G$ is a path cover containing the fewest possible paths.
@@ -392,8 +395,6 @@ Now we show that after updating the $h$ values as suggested, we are still left w
 **a.** Set up the graph $G'$ as defined in the problem, give each edge capacity $1$, and run a maximum-flow algorithm. I claim that if $(x_i, y_j)$ has flow $1$ in the maximum flow and we set $(i, j)$ to be an edge in our path cover, then the result is a minimum path cover. First observe that no vertex appears twice in the same path. If it did, then we would have $f(x_i, y_j) = f(x_k, y_j)$ for some $i \ne k \ne j$. However, this contradicts the conservation of flow, since the capacity leaving $y_j$ is only $1$. Moreover, since the capacity from $s$ to $x_i$ is $1$, we can never have two edges of the form $(x_i, y_j)$ and $(x_i, y_k)$ for $k \ne j$. We can ensure every vertex is included in some path by asserting that if there is no edge $(x_i, y_j)$ or $(x_j, y_i)$ for some $j$, then $j$ will be on a path by itself. Thus, we are guaranteed to obtain a path cover. If there are $k$ paths in a cover of $n$ vertices, then they will consist of $n − k$ edges in total. Given a path cover, we can recover a flow by assigning edge $(x_i, y_j)$ flow $1$ if and only if $(i, j)$ is an edge in one of the paths in the cover. Suppose that the maximum flow algorithm yields a cover with $k$ paths, and hence flow $n − k$, but a minimum path cover uses strictly fewer than $k$ paths. Then it must use strictly more than $n − k$ edges, so we can recover a flow which is larger than the one previously found, contradicting the fact that the previous flow was maximal. Thus, we find a minimum path cover. Since the maximum flow in the graph corresponds to finding a maximum matching in the bipartite graph obtained by considering the induced subgraph of $G'$ on $\\{1, 2, \dots, n\\}$, section 26.3 tells us that we can find a maximum flow in $O(V E)$.
 
 **b.** This doesn't work for directed graphs which contain cycles. To see this, consider the graph on $\\{1, 2, 3, 4\\}$ which contains edges $(1, 2)$, $(2, 3)$, $(3, 1)$, and $(4, 3)$. The desired output would be a single path $4$, $3$, $1$, $2$ but flow which assigns edges $(x_1, y_2)$, $(x_2, y_3)$, and $(x_3, y_1)$ flow $1$ is maximal.
-
-
 # Problem 26-3 Algorithmic consulting
 
 > Professor Gore wants to open up an algorithmic consulting company. He has identified n important subareas of algorithms (roughly corresponding to different portions of this textbook), which he represents by the set $A = \\{A_1, A_2, \ldots, A_n\\}$. In each subarea $A_k$, he can hire an expert in that area for $c_k$ dollars. The consulting company has lined up a set $J = \\{J_1, J_2, \ldots, J_m\\}$ of potential jobs. In order to perform job $J_i$, the company needs to have hired experts in a subset $R_i \subseteq A$ of subareas. Each expert can work on multiple jobs simultaneously. If the company chooses to accept job $J_i$, it must have hired experts in all subareas in $R_i$, and it will take in revenue of $p_i$ dollars.
@@ -419,8 +420,6 @@ $$\sum_{S_i} p_i − \sum_{S_k} c_k$$
 To see this is minimum, transferring over some set of experts and tasks from the sink side to the source side causes the capacity to go down by the cost of those experts and go up by the revenue of those jobs. If the cut was minimal than this must be a positive change, so the revenue isn't enough to justify the hire, meaning that those jobs that were on the source side in the minimal cut are exactly the jobs to attempt.
 
 **c.** Again, to get a solution, we must make the assumption that for every expert that is hired, all jobs that that expert is required for must be completed. Basically just run either the $O(V^3)$ relabel-to-front algorithm described in section 26.5 on the flow network, and hire the experts that are on the source side of the cut. By the previous part, we know that this gets us the best outcome. The number of edges in the flow network is $m + n + r$, and the number of vertices is $2 + m + n$, so the runtime is just $O((2 + m + n)^3)$, so it's cubic in $\max(m, n)$. There is no dependence on $R$ using this algorithm, but this is reasonable since we have the inherent bound that $r < mn$, which is a lower order term. Without this unstated assumption, I suspect that there isn't an efficient solution possible, but cannot think of what NP-complete problem you would use for the reduction.
-
-
 # Problem 26-4 Updating maximum flow
 
 > Let $G = (V, E)$ be a flow network with source $s$, sink $t$, and integer capacities. Suppose that we are given a maximum flow in $G$.
@@ -432,8 +431,6 @@ To see this is minimum, transferring over some set of experts and tasks from the
 **a.** If there exists a minimum cut on which $(u, v)$ doesn't lie then the maximum flow can't be increased, so there will exist no augmenting path in the residual network. Otherwise it does cross a minimum cut, and we can possibly increase the flow by $1$. Perform one iteration of Ford-Fulkerson. If there exists an augmenting path, it will be found and increased on this iteration. Since the edge capacities are integers, the flow values are all integral. Since flow strictly increases, and by an integral amount each time, a single iteration of the while loop of line 3 of Ford-Fulkerson will increase the flow by $1$, which we know to be maximal. To find an augmenting path we use a BFS, which runs in $O(V + E') = O(V + E)$.
 
 **b.** If the edge's flow was already at least $1$ below capacity then nothing changes. Otherwise, find a path from $s$ to $t$ which contains $(u, v)$ using BFS in $O(V + E)$. Decrease the flow of every edge on that path by $1$. This decreases total flow by $1$. Then run one iteration of the while loop of Ford-Fulkerson in $O(V + E)$. By the argument given in part a, everything is integer valued and flow strictly increases, so we will either find no augmenting path, or will increase the flow by $1$ and then terminate. "
-
-
 # Problem 26-5 Maximum flow by scaling
 
 > Let $G = (V, E)$ be a flow network with source $s$, sink $t$, and an integer capacity $c(u, v)$ on each edge $(u, v) \in E$. Let $C = \max_{(u, v) \in E} c(u, v)$.
@@ -476,8 +473,6 @@ Since any augmenting path must have a capacity of less than $2K$, we can look at
 **e.** Each time that the inner while loop runs, we know that it adds an amount of flow that is at least $K$, since that’s the value of the augmenting path. We also know that before we start that while loop, there is a cut of cost $\le 2K|E|$. This means that the most flow we could possibly add is $2K|E|$. Combining these two facts, we get that the most cuts possible is $\frac{2K|E|}{K} = 2|E| \in O(|E|)$.
 
 **f.** We only execute the outermost **for** loop $\lg C$ many times since $\lg(2^{\lfloor \lg C \rfloor}) \le \lg C$. The inner while loop only runs $O(|E|)$ many times by the previous part. Finally, every time the inner **for** loop runs, the operation it does can be done in time $O(|E|)$ by part (b). Putting it all together, the runtime is $O(|E|^2\lg C)$.
-
-
 # Problem 26-6 The Hopcroft-Karp bipartite matching algorithm
 
 > In this problem, we describe a faster algorithm, due to Hopcroft and Karp, for $p$ finding a maximum matching in a bipartite graph. The algorithm runs in $O(\sqrt V E)$ time. Given an undirected, bipartite graph $G = (V, E)$, where $V = L \cup R$ and all edges have exactly one endpoint in $L$, let $M$ be a matching in $G$. We say that a simple path $P$ in $G$ is an **_augmenting path_** with respect to $M$ if it starts at an unmatched vertex in $L$, ends at an unmatched vertex in $R$, and its edges belong alternately to $M$ and $E - M$. (This definition of an augmenting path is related to, but different from, an augmenting path in a flow network.) In this problem, we treat a path as a sequence of edges, rather than as a sequence of vertices. A shortest augmenting path with respect to a matching $M$ is an augmenting path with a minimum number of edges.
@@ -541,8 +536,3 @@ Since $P$ has edges alternately in $M'$ and $E - M'$ and is edge disjoint from $
 **g.** For each unmatched vertex in $L$ we can perform a modified $\text{BFS}$ to find the length of the shortest path to an unmatched vertex in $R$. Modify the $\text{BFS}$ to ensure that we only traverse an edge if it causes the path to alternate between an edge in $M$ and an edge in $E - M$. The first time an unmatched vertex in $R$ is reached we know the length $k$ of a shortest augmenting path.
 
 We can use this to stop our search early if at any point we have traversed more than that number of edges. To find disjoint paths, start at the vertices of $R$ which were found at distance $k$ in the $\text{BFS}$. Run a $\text{DFS}$ backwards from these, which maintains the property that the next vertex we pick has distance one fewer, and the edges alternate between being in $M$ and $E - M$. As we build up a path, mark the vertices as used so that we never traverse them again. This takes $O(E)$, so by part (f) the total runtime is $O(\sqrt VE)$.
-
-<!-- hotfix: KaTeX -->
-<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>

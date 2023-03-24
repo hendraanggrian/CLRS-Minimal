@@ -1,3 +1,8 @@
+<!-- hotfix: KaTeX -->
+<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>
+
 <h1 style="text-align: center;">22 Elementary Graph Algorithms</h1>
 
 # 22.1 Representations of graphs
@@ -750,8 +755,6 @@ Running-time: $O(V + E)$.
 3. To see this, all we need to do is note that there is some path from the root to $v$ of length $u.d + 1$ obtained by appending $(u, v)$ to $v.d$. Since there is a path of that length, it serves as an upper bound on the minimum length of all such paths from the root to $v$.
 
 4. It is trivial that $0 \le v.d$, since it is impossible to have a path from the root to $v$ of negative length. The more interesting inequality is $v.d \le u.d$. We know that there is some path from $v$ to $u$, consisting of tree edges, this is the defining property of $(u, v)$ being a back edge. This means that is $v, v_1, v_2, \dots, v_k, u$ is this path (it is unique because the tree edges form a tree). Then, we have that $u.d = v_k.d + 1 = v_{k − 1}.d + 2 = \cdots = v_1.d + k = v.d + k + 1$. So, we have that $u.d > v.d$. In fact, we just showed that we have the stronger conclusion, that $0 \le v.d < u.d$.
-
-
 # Problem 22-2 Articulation points, bridges, and biconnected components
 
 > Let $G = (V, E)$ be a connected, undirected graph. An **_articulation point_** of $G$ is a vertex whose removal disconnects $G$. A **_bridge_** of $G$ is an edge whose removal disconnects $G$. A **_biconnected component_** of $G$ is a maximal set of edges such that any two edges in the set lie on a common simple cycle. Figure 22.10 illustrates these definitions. We can determine articulation points, bridges, and biconnected components using depth-first search. Let $G_\pi = (V, E_\pi)$ be a depth-first tree of $G$.
@@ -834,8 +837,6 @@ VISIT-BCC(G, u, k)
         if v.color == WHITE
             VISIT-BCC(G, v, k)
 ```
-
-
 # Problem 22-3 Euler tour
 
 > An **_Euler tour_** of a strongly connected, directed graph $G = (V, E)$ is a cycle that traverses each edge of $G$ exactly once, although it may visit a vertex more than once.
@@ -858,8 +859,6 @@ EULER-TOUR(G)
         v = w
         append v to L
 ```
-
-
 # Problem 22-4 Reachability
 
 > Let $G = (V, E)$ be a directed graph in which each vertex $u \in V$ is labeled with a unique integer $L(U)$ from the set $\\{1, 2, \ldots, |V|\\}$. For each vertex $u \in V$, let $R(u) = \\{v \in V: u \leadsto v \\}$ be the set of vertices that are reachable from $u$. Define $\min(u)$ to be the vertex in $R(u)$ whose label is minimum, i.e., $\min(u)$ is the vertex $v$ such that $L(v) = \min \\{L(w): w \in R(u) \\}$. Give an $O(V + E)$-time algorithm that computes $\min(u)$ for all vertices $u \in V$.
@@ -879,8 +878,3 @@ REACHABILITY(u)
 **3.** Back to graph $G$, the value of $\min(u)$ on Graph $G$ is the value of $\min(u.scc)$ on Graph $G^{\text{SCC}}$.
 
 **Alternate solution:** Transpose the graph. Call $\text{DFS}$, but in the main loop of $\text{DFS}$, consider the vertices in order of their labels. In the $\text{DFS-VISIT}$ subroutine, upon discovering a new node, we set its $\text{min}$ to be the label of its root.
-
-<!-- hotfix: KaTeX -->
-<!-- https://github.com/yzane/vscode-markdown-pdf/issues/21/ -->
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$']] }, messageStyle: 'none' });</script>
