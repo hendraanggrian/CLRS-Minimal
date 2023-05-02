@@ -46,7 +46,7 @@ for chapter in "docs/"*; do
     34) chapter_title="34 NP-Completeness";;
     35) chapter_title="35 Approximation Algorithms";;
   esac
-  target_filename="chapter$chapter_version"
+  target_filename="ch$chapter_version"
   target_file="$SOURCE_ROOT/$target_filename.md"
 
   echo "- $chapter_name:"
